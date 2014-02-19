@@ -15,7 +15,6 @@ var MBTA = function(startingLine, startingStation
 };
 
 MBTA.prototype = {
-
   station_count: function(){
     if (this.startingLine === this.endingLine){
       count = Math.abs(lines[this.startingLine].indexOf(this.startingStation) - lines[this.startingLine].indexOf(this.endingStation));

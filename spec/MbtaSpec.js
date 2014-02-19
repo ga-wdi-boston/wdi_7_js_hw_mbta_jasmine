@@ -1,5 +1,4 @@
 describe('MBTA', function(){
-  var mbta;
 
   beforeEach(function(){
     mbta_same = new MBTA('red', 'kendall', 'red', 'park st');
@@ -21,8 +20,5 @@ describe('MBTA', function(){
     it("should return the correct result of count of stops if the starting line and the endign line are different", function(){
       expect(mbta_diff.station_count()).toEqual(4);
     });
-
-  })
-
-
+  });
 });
