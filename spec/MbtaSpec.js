@@ -13,5 +13,11 @@ describe('MBTA', function(){
     expect(mbta_same.endingStation).toEqual('park st');
   });
 
+  describe("#station_count", function(){
+    it("should return the correct result of count of stops if the starting line and the ending line are the same", function(){
+      expect(mbta_same.station_count()).toEqual(1);
+    });
+  })
+
 
 });

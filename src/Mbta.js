@@ -6,26 +6,24 @@ var lines = {
 };
 
 var MBTA = function(startingLine, startingStation
-, endingLine, endingStation){
+, endingLine, endingStation, count){
   this.startingLine = startingLine;
   this.startingStation = startingStation;
   this.endingLine = endingLine;
   this.endingStation = endingStation;
+  this.count = 0;
 };
 
 MBTA.prototype = {
-  alerts: function(){
-    alert("Staring at " + this.startingLine + " : " + this.startingStation);
-    alert("Ending at " + this.endingLine + " : " + this.endingStation);
-  },
+
   station_count: function(){
-    var count = 0;
     if (this.startingLine === this.endingLine){
       count = Math.abs(lines[this.startingLine].indexOf(this.startingStation) - lines[this.startingLine].indexOf(this.endingStation));
     } else {
       count = (Math.abs(lines[this.startingLine].indexOf(this.startingStation) - lines[this.startingLine].indexOf('park st')) + Math.abs(lines[this.endingLine].indexOf(this.endingStation) - lines[this.endingLine].indexOf('park st')));
     };
-    return count;
+    this.count = count;
+    return this.count;
   }
 }
 
