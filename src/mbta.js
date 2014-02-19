@@ -1,10 +1,22 @@
 // MBTA object
 var MBTA = {
-  Journey : function (startLine, startStop, endLine, endStop) {
-    this.start_line = startLine;
-    this.start_stop = startStop;
-    this.end_line   = endLine;
-    this.end_stop   = endStop;
+  Journey : function () {
+    if (arguments.length < 3) {
+      throw new Error ("a journey must have at least 3 arguments.");
+    } else if ( arguments.length === 3 ) {
+      this.start_line = arguments[0];
+      this.start_stop = arguments[1];
+      this.end_line   = arguments[0];
+      this.end_stop   = arguments[2];
+      if ( this.lines[this.start_line].indexOf(this.end_stop) === -1 ) {
+        throw new Error ("the end stop isn't on the same line as the start stop!");
+      }
+    } else {
+      this.start_line = arguments[0];
+      this.start_stop = arguments[1];
+      this.end_line   = arguments[2];
+      this.end_stop   = arguments[3];
+    }
   }
 };
 
