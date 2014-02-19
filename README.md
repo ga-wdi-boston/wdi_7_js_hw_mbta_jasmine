@@ -4,6 +4,8 @@ Let's revisit the [MBTA homework](https://github.com/ga-wdi-boston/wdi_7_js_lab_
 
 ## Objectives
 
-* Copy in your code from the original MBTA homework, and refactor it to be completely free of browser-based input and output (there should be no `prompt` or `console.log` anywhere!)
+* Copy in your code from the original MBTA homework, and refactor it to be free of browser-based input and output (there should be no `prompt` or `console.log` anywhere!)
 * Encapsulate your code within one or more classes, so that there are no global variables defined anywhere except for the classes themselves
 * Write Jasmine tests for all of the functions in your classes, including the initializers if you have any
+
+Remember to make small incremental commits with descriptive messages, and submit a PR when finished.
