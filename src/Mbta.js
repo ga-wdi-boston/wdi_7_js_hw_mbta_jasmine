@@ -14,7 +14,6 @@ var MBTA = function(startingLine, startingStation
 };
 
 MBTA.prototype = {
-  
   alerts: function(){
     alert("Staring at " + this.startingLine + " : " + this.startingStation);
     alert("Ending at " + this.endingLine + " : " + this.endingStation);
@@ -29,11 +28,6 @@ MBTA.prototype = {
     return count;
   }
 }
-
-var stops = new MBTA();
-stops.prompts();
-stops.alerts();
-alert('You will take ' + stops.station_count() + ' stations totally!');
 
 
 
