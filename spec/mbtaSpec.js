@@ -31,5 +31,12 @@ describe("MBTA", function(){
         }).toThrowError("stop doesn't exist.")
       });
     });
+
+    describe("#calc_stops", function(){
+      it("returns the number of stops between two stations", function(){
+        expect(journey1.calc_stops()).toEqual(2);
+        expect(journey2.calc_stops()).toEqual(6);
+      });
+    });
   });
 });
