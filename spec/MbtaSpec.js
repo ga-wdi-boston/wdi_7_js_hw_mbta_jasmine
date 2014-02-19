@@ -17,6 +17,11 @@ describe('MBTA', function(){
     it("should return the correct result of count of stops if the starting line and the ending line are the same", function(){
       expect(mbta_same.station_count()).toEqual(1);
     });
+
+    it("should return the correct result of count of stops if the starting line and the endign line are different", function(){
+      expect(mbta_diff.station_count()).toEqual(4);
+    });
+
   })
 
 
