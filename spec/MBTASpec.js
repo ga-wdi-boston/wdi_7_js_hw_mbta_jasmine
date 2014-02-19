@@ -7,9 +7,18 @@ describe("SubwayTrip", function() {
     trip2 = new SubwayTrip('orange', 'forest hills', 'red', 'alewife');
   });
 
-  it("should return the number of stops", function() {
-    expect(trip1.distance()).toEqual(6);
-    expect(trip2.distance()).toEqual(11);
+  it("SubwayTrip trip to have a start line", function() {
+     expect(trip1.startingLine).toEqual("green");
+     expect(trip2.startingLine).toEqual("orange");
+  });
+
+
+  describe("when the function distance is called", function() {
+
+    it("should return the number of stops", function() {
+      expect(trip1.distance()).toEqual(6);
+      expect(trip2.distance()).toEqual(11);
+    });
   });
 
 });
