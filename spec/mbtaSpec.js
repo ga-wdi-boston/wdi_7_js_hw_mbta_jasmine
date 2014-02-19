@@ -16,7 +16,7 @@ describe("MBTA", function(){
       it("can have 3 args, only if the end stop is on the same line", function(){
         expect(function(){
           journeyBad = new MBTA.Journey("red", "park st", "copley");
-        }).toThrowError("the end stop isn't on the same line as the start stop!");
+        }).toThrowError("stop doesn't exist.");
       });
 
       it("throws an error if the line doesn't exist", function(){

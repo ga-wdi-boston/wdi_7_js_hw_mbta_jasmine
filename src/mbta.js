@@ -11,9 +11,9 @@ var MBTA = {
       this.end_stop   = arguments[2];
       if ( !(this.start_line in this.lines) || !(this.end_line in this.lines)) {
         throw new Error ("line doesn't exist.");
-      }
-      if ( this.lines[this.start_line].indexOf(this.end_stop) === -1 ) {
-        throw new Error ("the end stop isn't on the same line as the start stop!");
+      } else if ( (this.lines[this.start_line].indexOf(this.start_stop) === -1) ||
+        (this.lines[this.end_line].indexOf(this.end_stop)) === -1) {
+          throw new Error ("stop doesn't exist.")
       }
     } else {
       this.start_line = arguments[0];
