@@ -25,10 +25,12 @@ Ride.prototype.startParkIndex = function() {
   return Math.abs(this.startIndex() - this.intersectionStart());
 };
 
+Ride.prototype.endIndex = function() {
+	return (lines[this.endingLine].indexOf(this.endingStation));
+};
 
-// var start_index = parseInt(this.lines[startingLine].indexOf(startingStation)),
-// 		intersection_start_index = parseInt(this.lines[startingLine].indexOf('Park St')),
-// 		start_park_index = (start_index - intersection_start_index),
+
+
 // 		end_index = parseInt(this.lines[endingLine].indexOf(endingStation)),
 // 		intersection_end_index = parseInt(this.lines[endingLine].indexOf('Park St')),
 // 		end_park_index = (end_index - intersection_end_index),

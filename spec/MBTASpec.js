@@ -6,7 +6,7 @@ describe('Ride', function(){
 	});
 
 
-	it('has a function called startIndex that calculates the starting station', function(){
+	it('has a function called startIndex that calculates the starting station index value', function(){
 		ride1.startIndex();
 		expect(ride1.startIndex()).toEqual(5);
 		ride2.startIndex();
@@ -25,5 +25,12 @@ describe('Ride', function(){
 		expect(ride1.startParkIndex()).toEqual(3);
 		ride2.startParkIndex();
 		expect(ride2.startParkIndex()).toEqual(1);
+	});
+
+	it('has a function called endIndex that calculates the ending station index value', function(){
+		ride1.endIndex();
+		expect(ride1.endIndex()).toEqual(1);
+		ride2.endIndex();
+		expect(ride2.endIndex()).toEqual(7);
 	});
 });
