@@ -29,6 +29,13 @@ describe("SubwayTrip", function() {
      expect(trip4.endingLine).toEqual("green");
   });
 
+  it("SubwayTrip trip to have an ending station", function() {
+     expect(trip1.endingStation).toEqual("alewife");
+     expect(trip3.endingStation).toEqual("south station");
+     expect(trip4.endingStation).toEqual("park st");
+  });
+
+
   describe("when the function distance is called", function() {
 
     it("should return the number of stops", function() {
@@ -39,3 +46,5 @@ describe("SubwayTrip", function() {
   });
 
 });
+
+
