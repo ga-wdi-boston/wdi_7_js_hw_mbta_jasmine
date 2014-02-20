@@ -1,16 +1,16 @@
 var MBTA = {
-	// var startingLine,
-	// 		startingStation,
-	// 		endingLine,
-	// 		endingStation,
-	// 		lines,
-	// 		numStops;
-
 	 lines: {
 	  'green':['haymarket', 'government center', 'park st', 'boylston', 'arlington', 'copley'],
 	  'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
 	  'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
 	},
+
+		var startingLine,
+				startingStation,
+				endingLine,
+				endingStation,
+				lines,
+				numStops;
 
 
 	enter_exit_same_line: function(line, startingStation, endingStation) {
@@ -45,6 +45,7 @@ var MBTA = {
 			return (this.line1_stops + this.line2_stops);
 	}
 };
+
 
 
 	// if (startingLine === endingLine) {
