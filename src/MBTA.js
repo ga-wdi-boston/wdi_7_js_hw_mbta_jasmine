@@ -24,21 +24,18 @@ var MBTA = function(startingLine, startingStation, endingLine, endingStation) {
 	this.distance_single_line = function(line, start_stop, end_stop) {
 		var current_line = this.lines[line],
 				index_of_start = current_line.indexOf(start_stop),
-				index_of_end = current_line.indexOf(end_stop),
+				index_of_end = current_line.indexOf(end_stop);
 				distance = Math.abs(index_of_end - index_of_start);
 		return distance;
 	};
 
 	this.total_distance = function() {
-		var distance_on_single = this.distance_single_line(this.startingLine, this.startingStation, this.endingStation),
-		distance_with_transfer = this.distance_to_park_st(this.startingLine, this.startingStation) + this.distance_to_park_st(this.endingLine, this.endingStation);
 		if (this.startingLine === this.endingLine) {
-			return distance_on_single;
+			return this.distance_single_line(this.startingLine, this.startingStation, this.endingStation);
 		}else if (this.startingLine !== this.endingLine) {
-			return distance_with_transfer;
+			return this.distance_to_park_st(this.startingLine, this.startingStation) + this.distance_to_park_st(this.endingLine, this.endingStation);
 		};
 	};
-
 };
 
 

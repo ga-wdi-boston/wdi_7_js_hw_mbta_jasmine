@@ -22,6 +22,10 @@ describe('MBTA', function(){
   	expect(journey_1.distance_to_park_st('orange','north station')).toEqual(2);
   });
 
+  it("calculates the distance for a single-line journey", function() {
+  	expect(journey_2.distance_single_line('green','copley','green','haymarket'));
+  });
+
   it("calculates the total distance for a given journey", function() {
   	// single line, no transfer, passes through park st
   	expect(journey_2.total_distance()).toEqual(5);
