@@ -1,36 +1,43 @@
 // my work is based on the "solution" branch of wdi_7_js_lab_mbta
 
 var MBTA = function(startingLine, startingStation, endingLine, endingStation) {
-
 	this.lines = {
 		'green':['haymarket', 'government center', 'park st', 'boylston', 'arlington', 'copley'],
 		'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
 		'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
 	};
-
 	this.startingLine = startingLine;
 	this.startingStation = startingStation;
 	this.endingLine = endingLine;
 	this.endingStation = endingStation;
-
-	// calc_distances: function() {
-	// 	this.start_parkst = this.distance_to_park_st(this.startingLine);
-	// 	this.end_parkst = this.distance_to_park_st(this.endingLine);
-	// 	this.first_stop = this.start_parkst(this.startingStation);
-	// 	this.ending_stop = this.end_parkst(this.endingStation);
-	// 	return this.first_stop + this.ending_stop;
-	// }
-
 };
 
 MBTA.prototype.distance_to_park_st = function(line, stop) {
-	var current_line = this.lines[line], // get the array of stops on the current line
-			index_of_park_st = current_line.indexOf('park st'), // get the index of park st on that line
-			index_of_current_stop = current_line.indexOf(stop), // get the index of the stop on that line
-			distance = Math.abs(index_of_current_stop - index_of_park_st); // calculate and return distance from that stop to park st
+	var current_line = this.lines[line], // array of stops
+			index_of_park_st = current_line.indexOf('park st'),
+			index_of_current_stop = current_line.indexOf(stop),
+			distance = Math.abs(index_of_current_stop - index_of_park_st);
 	return distance;
 };
 
-// var journey;
-// journey = new MBTA('red', 'alewife', 'orange', 'chinatown');
-// console.log(journey.distance_to_park_st('green','copley'));
+MBTA.prototype.distance_single_line = function(line, start_stop, end_stop) {
+	var current_line = this.lines[line],
+			index_of_start = current_line.indexOf(start_stop),
+			index_of_end = current_line.indexOf(end_stop),
+			distance = Math.abs(index_of_end - index_of_start);
+	return distance;
+};
+
+MBTA.prototype.total_distance = function() {
+	var distance_on_single = this.distance_single_line(this.startingLine, this.startingStation, this.endingStation),
+	distance_with_transfer = this.distance_to_park_st(this.startingLine, this.startingStation) + this.distance_to_park_st(this.endingLine, this.endingStation);
+	if (this.startingLine === this.endingLine) {
+		return distance_on_single;
+	}else if (this.startingLine !== this.endingLine) {
+		return distance_with_transfer;
+	};
+};
+
+var journey;
+journey = new MBTA('red', 'alewife', 'orange', 'chinatown');
+console.log(journey.total_distance());
