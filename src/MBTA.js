@@ -1,6 +1,6 @@
 // my work is based on the "solution" branch of wdi_7_js_lab_mbta
 
-var MBTA = function(startingLine, startingStation) {
+var MBTA = function(startingLine, startingStation, endingLine, endingStation) {
 
 	// lines: {
 	// 	'green':['haymarket', 'government center', 'park st', 'boylston', 'arlington', 'copley'],
@@ -10,6 +10,8 @@ var MBTA = function(startingLine, startingStation) {
 
 	this.startingLine = startingLine;
 	this.startingStation = startingStation;
+	this.endingLine = endingLine;
+	this.endingStation = endingStation;
 
 	// distance_to_park_st: function(line, stop) {
 	// 	var current_line = this.lines[line], // get the line being calculated on
