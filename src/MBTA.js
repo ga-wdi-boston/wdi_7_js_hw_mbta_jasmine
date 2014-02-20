@@ -21,7 +21,9 @@ Ride.prototype.intersectionStart = function() {
 	return (lines[this.startingLine].indexOf("park st"));
 };
 
-
+Ride.prototype.startParkIndex = function() {
+  return Math.abs(this.startIndex() - this.intersectionStart());
+};
 
 
 // var start_index = parseInt(this.lines[startingLine].indexOf(startingStation)),

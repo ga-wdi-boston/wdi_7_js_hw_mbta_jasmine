@@ -19,4 +19,11 @@ describe('Ride', function(){
 		ride2.intersectionStart();
 		expect(ride2.intersectionStart()).toEqual(1);
 	});
+
+	it('has a function called startParkIndex that calculates the difference between startIndex and intersectionStart', function(){
+		ride1.startParkIndex();
+		expect(ride1.startParkIndex()).toEqual(3);
+		ride2.startParkIndex();
+		expect(ride2.startParkIndex()).toEqual(1);
+	});
 });
