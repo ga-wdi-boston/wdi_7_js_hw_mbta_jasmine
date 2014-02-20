@@ -14,7 +14,11 @@ var lines = {
 
 
 Ride.prototype.startIndex = function() {
-		return (lines[this.startingLine].indexOf(this.startingStation));
+	return (lines[this.startingLine].indexOf(this.startingStation));
+};
+
+Ride.prototype.intersectionStart = function() {
+	return (lines[this.startingLine].indexOf("park st"));
 };
 
 
@@ -31,4 +35,4 @@ Ride.prototype.startIndex = function() {
 
 
 
-alert("This distance is: " + total_distance + " stops.");
+	// alert("This distance is: " + total_distance + " stops.");
