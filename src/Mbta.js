@@ -11,13 +11,6 @@ var MBTA = {
   	'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
   	'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
 	}
-	// defineIndex: function() {
-	// 	this.start_index = this.findIndex(this.starting_line, this.starting_station);
-	// 	this.end_index = this.findIndex(this.ending_line, this.ending_station);
-	// 	this.start_park = this.findIndex(this.startingLine, this.intersection);
-	// 	this.end_park = this.findIndex(this.ending_line, this.intersection);
-	// }
-
 };
 
 
