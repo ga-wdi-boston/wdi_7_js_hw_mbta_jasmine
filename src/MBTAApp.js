@@ -5,7 +5,7 @@ var MBTAApp = {
     'orange': ['Forest Hills', 'Back Bay', 'Chinatown', 'Downtown Crossing', 'State', 'Park St', 'Haymarket Orange', 'North Station']
   },
 
-  totalDistance: function(lines, startingLine, endingLine, startingStation, endingStation) {
+  totalStops: function(lines, startingLine, endingLine, startingStation, endingStation) {
     var start_index = lines[startingLine].indexOf(startingStation),
     intersection_index_on_start_line = lines[startingLine].indexOf('Park St'),
     end_index = lines[endingLine].indexOf(endingStation),
