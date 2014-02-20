@@ -40,4 +40,11 @@ describe('Ride', function(){
 		ride2.intersectionStart();
 		expect(ride2.intersectionEnd()).toEqual(1);
 	});
+
+	it('has a function called endParkIndex that calculates the difference between endIndex and intersectionEnd', function(){
+		ride1.endParkIndex();
+		expect(ride1.endParkIndex()).toEqual(1);
+		ride2.startParkIndex();
+		expect(ride2.endParkIndex()).toEqual(6);
+	});
 });

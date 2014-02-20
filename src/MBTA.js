@@ -33,9 +33,10 @@ Ride.prototype.intersectionEnd = function() {
 	return (lines[this.endingLine].indexOf("park st"));
 };
 
+Ride.prototype.endParkIndex = function() {
+  return Math.abs(this.endIndex() - this.intersectionEnd());
+};
 
-// 		end_index = parseInt(this.lines[endingLine].indexOf(endingStation)),
-// 		intersection_end_index = parseInt(this.lines[endingLine].indexOf('Park St')),
 // 		end_park_index = (end_index - intersection_end_index),
 // 		total_distance = (Math.abs(start_park_index) + Math.abs(end_park_index)),
 
