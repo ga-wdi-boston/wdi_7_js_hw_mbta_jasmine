@@ -12,9 +12,9 @@ var MBTA = {
   	'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
 	},
 
-	findIndex: function(line, stop){
-		return this.lines[line].indexOf(stop);
-	},
+	// findIndex: function(line, stop){
+	// 	return this.lines[line].indexOf(stop);
+	// },
 	defineIndex: function() {
 		this.start_index = this.findIndex(this.starting_line, this.starting_station);
 		this.end_index = this.findIndex(this.ending_line, this.ending_station);
@@ -24,6 +24,10 @@ var MBTA = {
 
 };
 
+
+MBTA.Trip.prototype.findIndex = function(line, stop){
+	return MBTA.lines[line].indexOf(stop);
+};
 
 // MBTA.defineTrip();
 // MBTA.defineIndex();

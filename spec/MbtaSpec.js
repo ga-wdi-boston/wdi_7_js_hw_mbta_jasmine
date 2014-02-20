@@ -13,5 +13,15 @@ describe('MBTA', function(){
 	  expect(trip1.ending_station).toBe('kendall');
 	});
 
-});
+	describe('find index', function() {
+	  beforeEach(function() {
+	    start = trip1.findIndex(trip1.starting_line, trip1.starting_station);
+	    end = trip1.findIndex(trip1.ending_line, trip1.ending_station);
+	  });
 
+		it('should correctly assign the index of the starting and ending points', function() {
+		  expect(start).toBe(1);
+		  expect(end).toBe(2);
+		});
+	});
+});
