@@ -37,7 +37,6 @@ describe("SubwayTrip", function() {
 
 
   describe("when the function distance is called", function() {
-
     it("should return the number of stops", function() {
       expect(trip1.distance()).toEqual(6);
       expect(trip2.distance()).toEqual(11);
@@ -45,6 +44,21 @@ describe("SubwayTrip", function() {
     });
   });
 
+  describe("station index function return proper index", function() {
+    it("returns index", function() {
+      expect(station_index('green','haymarket/green')).toEqual(0);
+      expect(station_index('red','kendall')).toEqual(2);
+      expect(station_index('orange','state')).toEqual(3);
+    });
+  });
 });
+
+
+
+
+
+
+
+
 
 
