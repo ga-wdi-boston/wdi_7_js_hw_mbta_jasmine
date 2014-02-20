@@ -51,6 +51,14 @@ describe("SubwayTrip", function() {
       expect(station_index('orange','state')).toEqual(3);
     });
   });
+
+  describe("lines", function() {
+    it("there are 3 lines with stops", function() {
+      expect(lines['green']).toEqual(["haymarket/green", "government center", "park st", "boylston", "arlington", "copley"]);
+      expect(lines['red']).toEqual(["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"]);
+       expect(lines['orange']).toEqual(["north station", "haymarket/orange", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]);
+    });
+  });
 });
 
 
