@@ -1,4 +1,4 @@
-function Trip(startingLine, startingStation, endingLine, endingStation) {
+function Trip(startingLine, startingStation, endingLine, endingStation, intersectionPoint) {
   this.startingLine = startingLine;
   this.startingStation = startingStation;
   this.endingLine = endingLine;
@@ -9,3 +9,5 @@ function Trip(startingLine, startingStation, endingLine, endingStation) {
     'orange': ["north station", "haymarket", "park street", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
   };
 };
+
+

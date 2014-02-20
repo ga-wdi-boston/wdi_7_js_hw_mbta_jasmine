@@ -15,4 +15,8 @@ describe('mbta', function() {
     expect(travel.endingStation).toEqual('north station');
   });
 
+  // it('should have a triple intersection point at park street station, specified by index', function() {
+  //   expect(travel.intersectionPoint).toEqual(1);
+  // });
+
 })
