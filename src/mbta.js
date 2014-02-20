@@ -8,12 +8,6 @@ var MBTA = {
 			lines,
 			numStops;
 
-	startingLine = prompt("Enter the Starting Line: ");
-	startingStation = prompt("Enter the Starting Station");
-	endingLine = prompt("Enter the Ending Line");
-	endingStation =  prompt("Enter the Ending Station");
-	startingLine = 'red';
-
 	alert("Staring at " + startingLine + " : " + startingStation);
 	alert("Ending at " + endingLine + " : " + endingStation);
 
@@ -64,7 +58,7 @@ var MBTA = {
 	} else {
 		numStops = enter_exit_different_lines(lines, startingLine, startingStation, endingLine, endingStation);
 	}
-}
+};
 
 alert('Number of stops between ' + startingLine + ":" + startingStation + ' and ' + endingLine + ":" + endingStation + ' is ' + numStops);
 
