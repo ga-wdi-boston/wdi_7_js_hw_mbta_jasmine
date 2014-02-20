@@ -40,9 +40,6 @@ Ride.prototype.endParkIndex = function() {
 Ride.prototype.totalDistance = function() {
 	return (this.startParkIndex() + this.endParkIndex());
 };
-// 		total_distance = (Math.abs(start_park_index) + Math.abs(end_park_index)),
-
-
 
 
 	// alert("This distance is: " + total_distance + " stops.");

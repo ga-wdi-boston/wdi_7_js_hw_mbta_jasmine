@@ -5,6 +5,13 @@ describe('Ride', function(){
 		ride2 = new Ride("red", "south station", "red", "alewife");
 	});
 
+	it('rides have startingLine, startingStation, endingLine, endingStation', function(){
+		expect(ride1.startingLine).toEqual("green");
+		expect(ride1.startingStation).toEqual("copley");
+		expect(ride2.endingLine).toEqual("red");
+		expect(ride2.endingStation).toEqual("alewife");
+	});
+
 
 	it('has a function called startIndex that calculates the starting station index value', function(){
 		ride1.startIndex();
