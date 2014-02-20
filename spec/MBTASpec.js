@@ -1,3 +1,12 @@
+describe('lines', function(){
+	it('has 3 lines, each with stops', function(){
+		expect(lines['green']).toEqual(["haymarket", "government center", "park st", "bolyston", "arlington", "copley"]);
+		expect(lines['red']).toEqual(["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"]);
+		expect(lines['orange']).toEqual(["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]);
+	});
+});
+
+
 describe('Ride', function(){
 	var ride1, ride2;
 	beforeEach(function(){
