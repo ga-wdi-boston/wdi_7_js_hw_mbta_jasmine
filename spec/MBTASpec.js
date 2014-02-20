@@ -47,4 +47,11 @@ describe('Ride', function(){
 		ride2.startParkIndex();
 		expect(ride2.endParkIndex()).toEqual(6);
 	});
+
+	it('has function called totalDistance that calculates the total distance for the ride', function(){
+		ride1.totalDistance();
+		expect(ride1.totalDistance()).toEqual(4);
+		ride2.totalDistance();
+		expect(ride2.totalDistance()).toEqual(7);
+	});
 });
