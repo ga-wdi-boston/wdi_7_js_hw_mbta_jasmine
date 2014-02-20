@@ -47,7 +47,7 @@ describe("Mbta", function() {
       ohHay  = new Mbta.Trip("green", "haymarket", "orange", "haymarket");
     });
 
-    it("should give Trip objects lines object with line keys/stop arrays", function() {
+    it("should make lines/stops available to Trip objects", function() {
       expect(stdTrip.lines.green).toEqual(["haymarket",
                                            "government center",
                                            "park street",
