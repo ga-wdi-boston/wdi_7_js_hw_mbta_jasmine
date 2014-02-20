@@ -43,18 +43,14 @@ var MBTA = {
 			this.line1_stops = Math.abs(start - switch_one);
 			this.line2_stops = Math.abs(stop -switch_two);
 			return (this.line1_stops + this.line2_stops);
-	},
+	}
+};
 
 
-	if (this.startingLine === this.endingLine) {
-		this.numStops = MBTA.enter_exit_same_line(line, startingStation, endingStation);
-	} else {
-		this.numStops = MBTA.enter_exit_different_lines(lines, startingLine, startingStation, endingLine, endingStation);
-	};
+	// if (startingLine === endingLine) {
+	// 	this.numStops = MBTA.enter_exit_same_line(line, startingStation, endingStation);
+	// } else {
+	// 	this.numStops = MBTA.enter_exit_different_lines(lines, startingLine, startingStation, endingLine, endingStation);
+	// };
 
-alert('Number of stops between ' + startingLine + ":" + startingStation + ' and ' + endingLine + ":" + endingStation + ' is ' + numStops);
-
-
-
-
-
+// alert('Number of stops between ' + startingLine + ":" + startingStation + ' and ' + endingLine + ":" + endingStation + ' is ' + numStops);
