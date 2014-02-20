@@ -8,8 +8,6 @@ var MBTA = {
 			lines,
 			numStops;
 
-	alert("Staring at " + startingLine + " : " + startingStation);
-	alert("Ending at " + endingLine + " : " + endingStation);
 
 	// Create a array for each line
 	 lines = {
