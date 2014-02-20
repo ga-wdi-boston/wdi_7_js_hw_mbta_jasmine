@@ -15,4 +15,9 @@ describe('MBTA', function(){
   	expect(journey.endingStation).toEqual('chinatown');
   });
 
+  it("calculates the distance to park st for a given line and stop", function() {
+  	expect(journey.distance_to_park_st('green','copley')).toEqual(3);
+  	expect(journey.distance_to_park_st('orange','north station')).toEqual(2);
+  });
+
 });
