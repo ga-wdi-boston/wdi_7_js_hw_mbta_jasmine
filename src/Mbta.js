@@ -9,6 +9,8 @@ var Mbta = {
     } else if ((this.lines[startingLine].indexOf(startingStation) < 0) ||
                (this.lines[endingLine].indexOf(endingStation) < 0)) {
       throw new Error("Invalid stop name");
+    } else if (startingLine === endingLine && startingStation === endingStation) {
+      throw new Error("Origin and destination are identical");
     }
 
     this.startHere = {line: startingLine, station: startingStation};
@@ -40,3 +42,13 @@ Mbta.Trip.prototype.lines = {
              "back bay",
              "forest hills"]
 };
+
+Mbta.Trip.prototype.distanceToPark = function(loc) {
+  var not_park = this.lines[loc.line].indexOf(loc.station),
+      park     = this.lines[loc.line].indexOf("park street");
+  return Math.abs(not_park - park);
+};
+
+Mbta.Trip.prototype.tripDistance = function() {
+  return this.distanceToPark(this.startHere) + this.distanceToPark(this.endHere);
+}

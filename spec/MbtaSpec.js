@@ -3,7 +3,9 @@ describe("Mbta", function() {
       tooShortTrip,
       tooLongTrip,
       invalidLine,
-      invalidStop;
+      invalidStop,
+      atPark,
+      ohHay;
 
   beforeEach(function() {
     stdTrip = new Mbta.Trip("red", "kendall", "green", "haymarket")
@@ -32,8 +34,19 @@ describe("Mbta", function() {
         invalidStop = new Mbta.Trip("red", "kendall", "red", "boylston"); }
         ).toThrowError("Invalid stop name");
     });
+    it("should throw an error when the origin and destination are identical", function() {
+      expect(function() {
+        nowhereToGo = new Mbta.Trip("red", "park street", "red", "park street"); }
+        ).toThrowError("Origin and destination are identical");
+    });
   });
   describe("Mbta.Trip.prototype", function() {
+
+    beforeEach(function() {
+      atPark = new Mbta.Trip("red", "park street", "red", "alewife");
+      ohHay  = new Mbta.Trip("green", "haymarket", "orange", "haymarket");
+    });
+
     it("should give Trip objects lines object with line keys/stop arrays", function() {
       expect(stdTrip.lines.green).toEqual(["haymarket",
                                            "government center",
@@ -58,6 +71,19 @@ describe("Mbta", function() {
                                             "back bay",
                                             "forest hills"]);
     });
-    it(".distanceToPark(place)")
+    it(".distanceToPark(loc) should take a location from a trip and return distance to park",
+      function() {
+        expect(stdTrip.distanceToPark(stdTrip.startHere)).toEqual(1);
+        expect(stdTrip.distanceToPark(stdTrip.endHere)).toEqual(2);
+
+
+        expect(atPark.distanceToPark(atPark.startHere)).toEqual(0);
+        expect(atPark.distanceToPark(atPark.endHere)).toEqual(6);
+      });
+    it(".tripDistance() should return total stops", function() {
+      expect(stdTrip.tripDistance()).toEqual(3);
+      expect(atPark.tripDistance()).toEqual(6);
+      expect(ohHay.tripDistance()).toEqual(3);
+    });
   });
 });
