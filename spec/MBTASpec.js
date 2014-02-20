@@ -33,4 +33,11 @@ describe('Ride', function(){
 		ride2.endIndex();
 		expect(ride2.endIndex()).toEqual(7);
 	});
+
+	it('has a function called intersectionEnd that calculates the index of Park on end line', function(){
+		ride1.intersectionEnd();
+		expect(ride1.intersectionEnd()).toEqual(2);
+		ride2.intersectionStart();
+		expect(ride2.intersectionEnd()).toEqual(1);
+	});
 });

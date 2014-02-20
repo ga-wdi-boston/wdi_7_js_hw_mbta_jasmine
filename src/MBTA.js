@@ -29,6 +29,9 @@ Ride.prototype.endIndex = function() {
 	return (lines[this.endingLine].indexOf(this.endingStation));
 };
 
+Ride.prototype.intersectionEnd = function() {
+	return (lines[this.endingLine].indexOf("park st"));
+};
 
 
 // 		end_index = parseInt(this.lines[endingLine].indexOf(endingStation)),
