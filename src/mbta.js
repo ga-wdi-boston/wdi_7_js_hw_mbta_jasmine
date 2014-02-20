@@ -1,35 +1,30 @@
-// Code here.
-
 var MBTA = {
-	var startingLine,
-			startingStation,
-			endingLine,
-			endingStation,
-			lines,
-			numStops;
+	// var startingLine,
+	// 		startingStation,
+	// 		endingLine,
+	// 		endingStation,
+	// 		lines,
+	// 		numStops;
 
-
-	// Create a array for each line
-	 lines = {
+	 lines: {
 	  'green':['haymarket', 'government center', 'park st', 'boylston', 'arlington', 'copley'],
 	  'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
 	  'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
-	};
+	},
 
 
-	var enter_exit_same_line = function(line, startingStation, endingStation) {
+	enter_exit_same_line: function(line, startingStation, endingStation) {
 		var stops_array,
 				switch_one,
 				switch_two;
-		stops_array = lines[line];
-		switch_one = stops_array.indexOf(startingStation);
-		switch_two = stops_array.indexOf(endingStation);
+		this.stops_array = this.lines[line];
+		this.switch_one = this.stops_array.indexOf(startingStation);
+		this.switch_two = this.stops_array.indexOf(endingStation);
 		abs_stop = Math.abs(switch_one - switch_two);
 		return abs_stop;
-	}
+	},
 
-
-	var enter_exit_different_lines = function(lines, startingLine, startingStation, endingLine, endingStation) {
+	enter_exit_different_lines: function(lines, startingLine, startingStation, endingLine, endingStation) {
 		var stops_array1,
 				stops_array2,
 				start,
@@ -39,24 +34,23 @@ var MBTA = {
 				line1_stops,
 				line2_stops;
 
-			stops_array1 = lines[startingLine];
-			stops_array2 = lines[endingLine];
-			start = stops_array1.indexOf(startingStation);
-			switch_one = stops_array1.indexOf('park st');
-			switch_two = stops_array2.indexOf('park st');
-			stop = stops_array2.indexOf(endingStation);
-			line1_stops = Math.abs(start - switch_one);
-			line2_stops = Math.abs(stop -switch_two);
-			return (line1_stops + line2_stops);
-	}
+			this.stops_array1 = this.lines[startingLine];
+			this.stops_array2 = this.lines[endingLine];
+			this.start = stops_array1.indexOf(startingStation);
+			this.switch_one = stops_array1.indexOf('park st');
+			this.switch_two = stops_array2.indexOf('park st');
+			this.stop = stops_array2.indexOf(endingStation);
+			this.line1_stops = Math.abs(start - switch_one);
+			this.line2_stops = Math.abs(stop -switch_two);
+			return (this.line1_stops + this.line2_stops);
+	},
 
 
-	if(startingLine === endingLine) {
-		numStops = enter_exit_same_line(line, startingStation, endingStation);
+	if (this.startingLine === this.endingLine) {
+		this.numStops = MBTA.enter_exit_same_line(line, startingStation, endingStation);
 	} else {
-		numStops = enter_exit_different_lines(lines, startingLine, startingStation, endingLine, endingStation);
-	}
-};
+		this.numStops = MBTA.enter_exit_different_lines(lines, startingLine, startingStation, endingLine, endingStation);
+	};
 
 alert('Number of stops between ' + startingLine + ":" + startingStation + ' and ' + endingLine + ":" + endingStation + ' is ' + numStops);
 
