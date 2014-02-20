@@ -10,17 +10,13 @@ var MBTA = {
   	'green':['haymarket', 'government center', 'park st', 'bolyston', 'arlington', 'copley'],
   	'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
   	'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
-	},
-
-	// findIndex: function(line, stop){
-	// 	return this.lines[line].indexOf(stop);
-	// },
-	defineIndex: function() {
-		this.start_index = this.findIndex(this.starting_line, this.starting_station);
-		this.end_index = this.findIndex(this.ending_line, this.ending_station);
-		this.start_park = this.findIndex(this.startingLine, this.intersection);
-		this.end_park = this.findIndex(this.ending_line, this.intersection);
 	}
+	// defineIndex: function() {
+	// 	this.start_index = this.findIndex(this.starting_line, this.starting_station);
+	// 	this.end_index = this.findIndex(this.ending_line, this.ending_station);
+	// 	this.start_park = this.findIndex(this.startingLine, this.intersection);
+	// 	this.end_park = this.findIndex(this.ending_line, this.intersection);
+	// }
 
 };
 
@@ -28,6 +24,13 @@ var MBTA = {
 MBTA.Trip.prototype.findIndex = function(line, stop){
 	return MBTA.lines[line].indexOf(stop);
 };
+
+MBTA.Trip.prototype.defineIndex = function() {
+	this.start_index = this.findIndex(this.starting_line, this.starting_station);
+	this.end_index = this.findIndex(this.ending_line, this.ending_station);
+	this.start_park = this.findIndex(this.starting_line, this.intersection);
+	this.end_park = this.findIndex(this.ending_line, this.intersection);
+}
 
 // MBTA.defineTrip();
 // MBTA.defineIndex();

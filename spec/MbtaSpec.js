@@ -19,9 +19,22 @@ describe('MBTA', function(){
 	    end = trip1.findIndex(trip1.ending_line, trip1.ending_station);
 	  });
 
-		it('should correctly assign the index of the starting and ending points', function() {
+		it('should correctly assign the index of a given stop at a given station', function() {
 		  expect(start).toBe(1);
 		  expect(end).toBe(2);
+		});
+	});
+
+	describe('define index', function() {
+	  beforeEach(function() {
+	    trip2.defineIndex();
+	  });
+
+		it('should correctly assign the index of the starting and ending points for a trip', function() {
+		  expect(trip2.start_index).toEqual(5);
+		  expect(trip2.end_index).toEqual(6);
+		  expect(trip2.start_park).toEqual(1);
+		  expect(trip2.end_park).toEqual(2);
 		});
 	});
 });
