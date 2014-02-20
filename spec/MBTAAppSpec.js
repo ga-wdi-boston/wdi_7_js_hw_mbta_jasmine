@@ -8,7 +8,7 @@ describe ('MBTAApp', function() {
   beforeEach(function() {
     trip_1 = new Trip('red', 'orange', 'South Station', 'Back Bay');
     trip_2 = new Trip('green', 'orange', 'Arlington', 'State');
-  })
+  });
 
   describe ('totalStops', function() {
     it("should calculate the total number of stops for a trip", function() {
@@ -16,4 +16,13 @@ describe ('MBTAApp', function() {
       expect(MBTAApp.totalStops(lines, trip_2)).toEqual(3);
     });
   });
+
+  describe ('Trip', function() {
+    it("should have a start line, end line, start station and end station", function() {
+      expect(trip_1.startingLine).toEqual('red');
+      expect(trip_1.endingLine).toEqual('orange');
+      expect(trip_1.startingStation).toEqual('South Station');
+      expect(trip_1.endingStation).toEqual('Back Bay');
+    })
+  })
 });
