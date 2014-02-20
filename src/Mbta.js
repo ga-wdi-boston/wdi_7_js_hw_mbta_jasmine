@@ -35,17 +35,21 @@ MBTA.Trip.prototype.defineIndex = function() {
 // MBTA.defineTrip();
 // MBTA.defineIndex();
 
-// Compute total stops
-// var stops = 0;
-// if (MBTA.startingLine === MBTA.endingLine) {
-// 	stops = Math.abs(MBTA.start_index - MBTA.end_index);
-// } else {
-// 	stops += Math.abs((MBTA.start_index - MBTA.start_park));
-// 	stops += Math.abs((MBTA.end_index - MBTA.end_park));
-// }
 
-// // alert total stops
-// alert('You are going to have to make ' + stops + ' stops.');
+trip = new MBTA.Trip('red', 'porter', 'orange', 'back bay');
+trip.defineIndex();
+
+//Compute total stops
+var stops = 0;
+if (trip.starting_line === trip.ending_line) {
+	stops = Math.abs(trip.start_index - trip.end_index);
+} else {
+	stops += Math.abs((trip.start_index - trip.start_park));
+	stops += Math.abs((trip.end_index - trip.end_park));
+}
+
+// alert total stops
+alert('You are going to have to make ' + stops + ' stops.');
 
 
 
