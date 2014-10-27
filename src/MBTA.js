@@ -18,7 +18,7 @@ function MBTA() {
   }
 
   this.stopsBetween = function(origin, destination) {
-    return Math.abs(this.getIndex(origin) - this.getIndex(destination))
+    return Math.abs(this.getIndex(destination) - this.getIndex(origin))
   }
 
   this.getIndex = function(point) {
@@ -26,5 +26,12 @@ function MBTA() {
     var stop = point['stop'];
 
     return line.indexOf(stop);
+  }
+
+  this.distanceToPark = function(point) {
+    var matchingPark = point;
+    matchingPark.stop = 'park st';
+
+    return this.calculateDistance(point, matchingPark);
   }
 }
