@@ -45,20 +45,20 @@ describe("MBTA", function() {
         stop: 'park st'
       }
 
-      expect(MBTA.calculate_distance()).toEqual(2);
+      expect(MBTA.calculate_distance()).toEqual(1);
 
     });
 
     it("any two stops", function() {
 
       MBTA.origin = {
-        line: 'orange',
-        stop: 'north station'
+        line: 'red',
+        stop: 'harvard'
       }
 
       MBTA.destination = {
         line: 'green',
-        stop: 'copley'
+        stop: 'haymarket'
       }
 
       expect(MBTA.calculate_distance()).toEqual(5);
