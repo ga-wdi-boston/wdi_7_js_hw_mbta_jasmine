@@ -12,56 +12,56 @@
 
 describe("MBTA", function() {
 
-  var MBTA = new MBTA;
+  var mbta = new MBTA;
 
   describe("calculates the distance between", function() {
 
     var origin, destination;
 
     it("two stops on the same line", function() {
-      MBTA.origin = {
+      mbta.origin = {
         line: 'orange',
         stop: 'north station'
       }
 
-      MBTA.destination = {
+      mbta.destination = {
         line: 'orange',
         stop: 'chinatown'
       }
 
-      expect(MBTA.calculate_distance()).toEqual(5);
+      expect(mbta.tripDistance()).toEqual(5);
 
     });
 
     it("any stop and its matching park st stop", function() {
 
-      MBTA.origin = {
+      mbta.origin = {
         line: 'red',
         stop: 'south station'
       }
 
-      MBTA.destination = {
+      mbta.destination = {
         line: 'red',
         stop: 'park st'
       }
 
-      expect(MBTA.calculate_distance()).toEqual(1);
+      expect(mbta.tripDistance()).toEqual(1);
 
     });
 
     it("any two stops", function() {
 
-      MBTA.origin = {
+      mbta.origin = {
         line: 'red',
         stop: 'harvard'
       }
 
-      MBTA.destination = {
+      mbta.destination = {
         line: 'green',
         stop: 'haymarket'
       }
 
-      expect(MBTA.calculate_distance()).toEqual(5);
+      expect(mbta.tripDistance()).toEqual(5);
 
     });
 
