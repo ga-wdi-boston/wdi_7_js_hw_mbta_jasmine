@@ -20,4 +20,11 @@ function MBTA() {
   this.stopsBetween = function(origin, destination) {
     return Math.abs(this.getIndex(origin) - this.getIndex(destination))
   }
+
+  this.getIndex = function(point) {
+    var line = this.lines[point['line']];
+    var stop = point['stop'];
+
+    return line.indexOf(stop);
+  }
 }
