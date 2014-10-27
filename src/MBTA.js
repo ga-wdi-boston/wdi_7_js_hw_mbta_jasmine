@@ -8,4 +8,12 @@ function MBTA() {
   this.tripDistance = function() {
     return this.calculateDistance(this.origin, this.destination);
   }
+
+  this.calculateDistance = function(origin, destination) {
+    if (origin['line'] == destination['line']) {
+      return this.stopsBetween(origin, destination)
+    } else {
+      return this.distanceToPark(origin) + this.distanceToPark(destination)
+    }
+  }
 }
