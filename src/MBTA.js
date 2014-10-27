@@ -16,4 +16,8 @@ function MBTA() {
       return this.distanceToPark(origin) + this.distanceToPark(destination)
     }
   }
+
+  this.stopsBetween = function(origin, destination) {
+    return Math.abs(this.getIndex(origin) - this.getIndex(destination))
+  }
 }
