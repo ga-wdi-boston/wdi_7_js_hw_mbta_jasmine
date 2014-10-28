@@ -35,7 +35,7 @@ MBTA = {
     this.startStation = startStation;
     this.endLine = MBTA[endLine];
     this.endStation = endStation;
-    this.calcDistances;
+    this.calcDistances();
   },
 
   distanceToPark: function(line) {
@@ -48,8 +48,7 @@ MBTA = {
     this.startDistance = Math.abs(distanceToPark(this.startLine)-startIndex);
     this.endDistance = Math.abs(distanceToPark(this.endLine)-endIndex);
     return this.startDistance + this.endDistance;
-  },
-
+  }
 }
 
 debugger
