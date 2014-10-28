@@ -30,21 +30,28 @@ MBTA = {
     'tufts'
   ],
 
-  distanceToPark: function(line) {
-    this.startDistance = Math.abs(this.startLine.indexOf('park street') - this.startLine.indexOf(this.startStop));
-    this.endDistance = Math.abs(this.endLine.indexOf('park street') - this.endLine.indexOf(this.endstop));
-  },
-
-  calcDistances: function() {
-
-  },
-
   distance: function(startLine, startStation, endLine, endStation) {
     this.startLine = MBTA[startLine];
     this.startStation = startStation;
     this.endLine = MBTA[endLine];
     this.endStation = endStation;
-  }
+    return this.totalDistance
+  },
+
+  distanceToPark: function(line) {
+    return line.indexOf("park street");
+  },
+
+  calcDistances: function() {
+    startIndex = this.startLine.indexOf(this.startStation);
+    endIndex = this.endLine.indexOf(this.endStation);
+    this.startDistance = Math.abs(distanceToPark(this.startLine)-startIndex);
+    this.endDistance = Math.abs(distanceToPark(this.endLine)-endIndex);
+    this.totalDistance = this.startDistance + this.endDistance;
+  },
+
 }
+
+debugger
 
 MBTA.distance('red', 'harvard', 'green', 'copley');
