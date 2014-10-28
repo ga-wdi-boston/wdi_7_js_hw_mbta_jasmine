@@ -5,7 +5,10 @@ var MBTA = {
     'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
   },
   distanceToPark: function(line, stop) {
-
+    var current_line = this.lines[line];
+    park = current_line.indexOf('park st');
+    var current_stop = current_line.indexOf(stop);
+    return Math.abs(current_stop - park);
   },
   distance: function(start_line, start_station, stop_line, stop_station) {
     this.start_line;
@@ -24,3 +27,6 @@ var MBTA = {
     }
   }
 };
+
+
+console.log(MBTA.distance('red', 'harvard', 'green', 'copley'));
