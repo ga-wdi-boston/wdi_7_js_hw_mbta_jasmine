@@ -35,7 +35,7 @@ MBTA = {
     this.startStation = startStation;
     this.endLine = MBTA[endLine];
     this.endStation = endStation;
-    this.totalDistance = this.calcDistances();
+    return "Your total travel distance is " + this.calcDistances() + " stops.";
   },
 
   distanceToPark: function(line) {
@@ -52,6 +52,5 @@ MBTA = {
 }
 
 
-MBTA.distance('red', 'harvard', 'green', 'copley');
-MBTA.totalDistance;
+console.log(MBTA.distance('red', 'alewife', 'orange', 'tufts'));
 
