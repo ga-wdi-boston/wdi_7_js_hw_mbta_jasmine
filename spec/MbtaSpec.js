@@ -12,4 +12,11 @@ describe("MBTA", function() {
       expect(this.mbta.endStop).toEqual("Chinatown");
     });
   });
+
+  describe("#distanceToDestination", function(){
+    it("calculates the correct distance from start stop to end stop", function(){
+      expect(this.mbta.distanceToDestination()).toEqual(8);
+    });
+  });
+
 });
