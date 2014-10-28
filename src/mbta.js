@@ -1,4 +1,11 @@
-var MBTA = {
+function MBTA(startLine, startStop, endLine, endStop){
+  this.startLine = startLine;
+  this.startStop = startStop;
+  this.endLine = endLine;
+  this.endStop = endStop;
+}
+
+MBTA.prototype = {
   lines: {
     "red": [
      "Alewife",
@@ -31,33 +38,18 @@ var MBTA = {
    ]
   },
   distanceToPark: function(line, stop){
-    return Math.abs( MBTA.lines[line].indexOf(stop) - MBTA.lines[line].indexOf("Park Street") );
+    return Math.abs( this.lines[line].indexOf(stop) - this.lines[line].indexOf("Park Street") );
   },
 
-  distanceToDestination: function(startLine, startStop, endLine, endStop){
-    if (startLine === endLine) {
-      return Math.abs( MBTA.lines[startLine].indexOf(startStop) - MBTA.lines[startLine].indexOf(endStop) );
+  distanceToDestination: function(){
+    if (this.startLine === this.endLine) {
+      return Math.abs( this.lines[this.startLine].indexOf(this.startStop) - this.lines[this.startLine].indexOf(this.endStop) );
     } else {
-      return this.distanceToPark(startLine, startStop) + this.distanceToPark(endLine, endStop);
+      return this.distanceToPark(this.startLine, this.startStop) + this.distanceToPark(this.endLine, this.endStop);
     }
   },
-
-  startLine: function(){
-    return prompt("Enter start line");
-  },
-
-  startStop: function(){
-    return prompt("Enter start stop");
-  },
-
-  endLine: function(){
-    return prompt("Enter end line");
-  },
-
-  endStop: function(){
-    return prompt("Enter end stop");
-  }
-}
+};
 
 
-alert(MBTA.distanceToDestination(MBTA.startLine(), MBTA.startStop(), MBTA.endLine(), MBTA.endStop()));
+var mbta = new MBTA("red", "Davis", "orange", "Chinatown");
+console.log(mbta.distanceToDestination());
