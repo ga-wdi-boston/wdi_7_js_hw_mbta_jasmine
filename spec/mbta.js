@@ -47,11 +47,12 @@ MBTA = {
   },
 
   // prompt user to input starting line, ending line, starting stop, ending stop, etc.
-  calculateDistance: function() {
+  total_distance: function() {
+    this.distance_to_park();
     debugger
     return this.startDistance + this.endDistance;
   }
 }
 
 MBTA.promptUser();
-alert("Your total distance is " + MBTA.calculateDistance() + " stops.");
+alert("Your total distance is " + MBTA.total_distance() + " stops.");
