@@ -67,4 +67,10 @@ describe("MBTA", function() {
 
   });
 
+  describe("getIndex", function() {
+    it("gets the index of the specified line and stop", function() {
+      expect(mbta.getIndex({ line: 'red', stop: 'kendall'})).toEqual(2);
+    });
+  });
+
 });

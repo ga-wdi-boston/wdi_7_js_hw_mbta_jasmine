@@ -13,7 +13,7 @@ function MBTA() {
     if (origin['line'] == destination['line']) {
       return this.stopsBetween(origin, destination)
     } else {
-      return this.distanceToPark(origin) + this.distanceToPark(destination)
+      return (this.distanceToPark(origin) + this.distanceToPark(destination))
     }
   }
 
