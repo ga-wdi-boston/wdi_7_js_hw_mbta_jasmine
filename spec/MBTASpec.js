@@ -69,7 +69,25 @@ describe("MBTA", function() {
 
   describe("getIndex", function() {
     it("gets the index of the specified line and stop", function() {
-      expect(mbta.getIndex({ line: 'red', stop: 'kendall'})).toEqual(2);
+      var point = {
+        line: 'red',
+        stop: 'kendall'
+      }
+      expect(mbta.getIndex(point)).toEqual(2);
+    });
+  });
+
+  describe("stopsBetween", function() {
+    it("calculates the distance between two stops", function() {
+      var origin = {
+        line: 'green',
+        stop: 'copley'
+      }
+      var destination = {
+        line: 'green',
+        stop: 'haymarket'
+      }
+      expect(mbta.stopsBetween(origin, destination)).toEqual(5)
     });
   });
 
