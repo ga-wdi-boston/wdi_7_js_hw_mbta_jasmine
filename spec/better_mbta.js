@@ -38,19 +38,19 @@ MBTA = {
     return "Your total travel distance is " + this.calcDistances() + " stops.";
   },
 
-  distanceToPark: function(line) {
+  indexOfPark: function(line) {
     return line.indexOf("park street");
   },
 
   calcDistances: function() {
     var startIndex = this.startLine.indexOf(this.startStation);
     var endIndex = this.endLine.indexOf(this.endStation);
-    this.startDistance = Math.abs(this.distanceToPark(this.startLine) - startIndex);
-    this.endDistance = Math.abs(this.distanceToPark(this.endLine) - endIndex);
+    this.startDistance = Math.abs(this.indexOfPark(this.startLine) - startIndex);
+    this.endDistance = Math.abs(this.indexOfPark(this.endLine) - endIndex);
     return this.startDistance + this.endDistance;
   }
 }
 
 
-console.log(MBTA.distance('red', 'alewife', 'orange', 'tufts'));
+console.log(MBTA.distance('green', 'copley', 'orange', 'tufts'));
 
