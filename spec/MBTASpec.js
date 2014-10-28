@@ -23,13 +23,32 @@ describe("#calculateDistance", function(){
 
   it("calculates the distance between any two stops", function(){
 
-    expect(MBTA.distanceToPark("red_line", 6, ))
+    expect(MBTA.calculateDistances("red_line", 6, "orange_line", "North Station")).toEqual(8)
 
-  }
+  });
 
-  }
+  });
+describe("#calculateDistance", function(){
+
+  it("calculates the distance between any two stops", function(){
+
+    expect(MBTA.calculateDistances("green_line", 2, "green_line", "North Station")).toEqual(2)
+
+  });
+
+  });
+describe("#calculateDistance", function(){
+
+  it("calculates the distance between any two stops", function(){
+
+    expect(MBTA.calculateDistances("red_line", MBTA.distanceToPark("red_line", "Alewife"), "orange_line", "North Station")).toEqual(8)
+
+  });
+
+  });
 
 
 
 
-// }
+
+

@@ -42,11 +42,14 @@ var MBTA = {
      if(line1 != line2){
 
      dist2 = Math.abs(parkNum2 - lineLength2);
+     return dist2 + dist1
      //alert(dist1 + dist2);
-     debugger
+
    } else{
       //alert(dist1);
+      return dist1
    }
+
 
 
   },
