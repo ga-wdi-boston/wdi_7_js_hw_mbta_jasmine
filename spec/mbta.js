@@ -27,7 +27,7 @@ MBTA = {
     "state street",
     "downtown crossing",
     "chinatown",
-    "tufts medical"
+    "tufts"
   ],
 
   promptUser: function() {
