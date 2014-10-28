@@ -19,4 +19,13 @@ describe("MBTA", function() {
     });
   });
 
+  describe("#distanceToPark", function(){
+    it("calculates the correct distance from start stop to Park Station", function(){
+      expect(this.mbta.distanceToPark(this.mbta.startLine, this.mbta.startStop)).toEqual(5);
+    });
+    it("calculates the correct distance from end stop to Park Station", function(){
+      expect(this.mbta.distanceToPark(this.mbta.endLine, this.mbta.endStop)).toEqual(3);
+    });
+  });
+
 });
