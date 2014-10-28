@@ -45,8 +45,8 @@ MBTA = {
   calcDistances: function() {
     var startIndex = this.startLine.indexOf(this.startStation);
     var endIndex = this.endLine.indexOf(this.endStation);
-    this.startDistance = Math.abs(distanceToPark(this.startLine) - startIndex);
-    this.endDistance = Math.abs(distanceToPark(this.endLine) - endIndex);
+    this.startDistance = Math.abs(this.distanceToPark(this.startLine) - startIndex);
+    this.endDistance = Math.abs(this.distanceToPark(this.endLine) - endIndex);
     return this.startDistance + this.endDistance;
   }
 }
