@@ -35,7 +35,7 @@ MBTA = {
     this.startStation = startStation;
     this.endLine = MBTA[endLine];
     this.endStation = endStation;
-    this.calcDistances();
+    this.totalDistance = this.calcDistances();
   },
 
   distanceToPark: function(line) {
@@ -43,14 +43,15 @@ MBTA = {
   },
 
   calcDistances: function() {
-    startIndex = this.startLine.indexOf(this.startStation);
-    endIndex = this.endLine.indexOf(this.endStation);
-    this.startDistance = Math.abs(distanceToPark(this.startLine)-startIndex);
-    this.endDistance = Math.abs(distanceToPark(this.endLine)-endIndex);
+    var startIndex = this.startLine.indexOf(this.startStation);
+    var endIndex = this.endLine.indexOf(this.endStation);
+    this.startDistance = Math.abs(distanceToPark(this.startLine) - startIndex);
+    this.endDistance = Math.abs(distanceToPark(this.endLine) - endIndex);
     return this.startDistance + this.endDistance;
   }
 }
 
-debugger
 
 MBTA.distance('red', 'harvard', 'green', 'copley');
+MBTA.totalDistance;
+
