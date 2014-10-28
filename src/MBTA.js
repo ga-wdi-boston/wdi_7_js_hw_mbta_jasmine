@@ -29,8 +29,10 @@ function MBTA() {
   }
 
   this.distanceToPark = function(point) {
-    var matchingPark = point;
-    matchingPark.stop = 'park st';
+    var matchingPark = {
+      line: point['line'],
+      stop: 'park st'
+    }
 
     return this.calculateDistance(point, matchingPark);
   }

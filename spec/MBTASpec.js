@@ -91,4 +91,14 @@ describe("MBTA", function() {
     });
   });
 
+  describe("distanceToPark", function() {
+    it("calculates the distance between a point and park st", function() {
+      var point = {
+        line: 'orange',
+        stop: 'chinatown'
+      }
+      expect(mbta.distanceToPark(point)).toEqual(3);
+    });
+  });
+
 });
