@@ -1,4 +1,4 @@
-describe("#DistanceToPark", function(line, stop) {
+describe("#distanceToPark", function(line, stop) {
   it("calculates the distance to park", function(line, stop) {
     MBTA.DistanceToPark('red', 'harvard');
     MBTA.DistanceToPark('green', 'copley');
@@ -25,9 +25,9 @@ describe("#distance", function(start_line, start_station, stop_line, stop_statio
 });
 
 
-describe("#calcDistances", function() {
-  it ("calculates the mbta distances", function() {
-    MBTA.calcDistance();
+// describe("#calcDistances", function() {
+//   it ("calculates the mbta distances", function() {
+//     MBTA.calcDistance();
 
-  });
-});
+//   });
+// });
