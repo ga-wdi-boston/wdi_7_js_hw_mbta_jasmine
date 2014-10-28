@@ -23,3 +23,11 @@ describe("#distance", function(start_line, start_station, stop_line, stop_statio
     expect(this.stop_station).toEqual('haymarket');
   });
 });
+
+
+describe("#calcDistances", function() {
+  it ("calculates the mbta distances", function() {
+    MBTA.calcDistance();
+
+  });
+});
