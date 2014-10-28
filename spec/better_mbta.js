@@ -3,56 +3,48 @@ var MBTA;
 MBTA = {
   // a bunch of arrays for mbta lines
   red: [
-    "alewife",
-    "davis",
-    "porter",
-    "harvard",
-    "central",
-    "kendall",
-    "park street",
-    "south station"
+    'alewife',
+    'davis',
+    'porter',
+    'harvard',
+    'central',
+    'kendall',
+    'park street',
+    'south station'
   ],
   green: [
-    "haymarket",
-    "government center",
-    "park street",
-    "boylston",
-    "arlington",
-    "copley"
+    'haymarket',
+    'government center',
+    'park street',
+    'boylston',
+    'arlington',
+    'copley'
   ],
   orange: [
-    "north station",
-    "haymarket",
-    "park street",
-    "state street",
-    "downtown crossing",
-    "chinatown",
-    "tufts medical"
+    'north station',
+    'haymarket',
+    'park street',
+    'state street',
+    'downtown crossing',
+    'chinatown',
+    'tufts'
   ],
 
-  promptUser: function() {
-    this.startLine = this.line_lookup(prompt("Please provide your start line."));
-    this.startStop = prompt("Please provide your start stop.");
-    this.endLine = this.line_lookup(prompt("Please provide your end line."));
-    this.endStop = prompt("Please provide your end stop.");
+  distanceToPark: function(line) {
+    this.startDistance = Math.abs(this.startLine.indexOf('park street') - this.startLine.indexOf(this.startStop));
+    this.endDistance = Math.abs(this.endLine.indexOf('park street') - this.endLine.indexOf(this.endstop));
   },
 
-  line_lookup: function(lineName) {
-    return this[lineName];
+  calcDistances: function() {
+
   },
 
-  distance_to_park: function() {
-    this.startDistance = Math.abs(this.startLine.indexOf("park street") - this.startLine.indexOf(this.startStop));
-    this.endDistance = Math.abs(this.endLine.indexOf("park street") - this.endLine.indexOf(this.endstop));
-  },
-
-  // prompt user to input starting line, ending line, starting stop, ending stop, etc.
-  total_distance: function() {
-    this.distance_to_park();
-    debugger
-    return this.startDistance + this.endDistance;
+  distance: function(startLine, startStation, endLine, endStation) {
+    this.startLine = MBTA[startLine];
+    this.startStation = startStation;
+    this.endLine = MBTA[endLine];
+    this.endStation = endStation;
   }
 }
 
-MBTA.promptUser();
-alert("Your total distance is " + MBTA.total_distance() + " stops.");
+MBTA.distance('red', 'harvard', 'green', 'copley');
