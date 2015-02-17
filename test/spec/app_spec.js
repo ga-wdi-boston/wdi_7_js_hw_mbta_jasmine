@@ -19,6 +19,9 @@ describe("MBTA suite", function() {
     expect(startingLine).toBeDefined();
   });
   
+  it("uses a function to determine number of stops", function() {
+    expect(numberStops).toEqual(jasmine.any(Function))
+  });
 
 });
 
