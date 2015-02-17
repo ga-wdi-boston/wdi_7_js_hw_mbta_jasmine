@@ -1,25 +1,27 @@
-'use strict';
-
-var trace = function(){
-  for(var i = 0; i < arguments.length; i++){
-    console.log(arguments[i]);
-  }
+var lines = {
+  'green':[
+    "Haymarket",
+    "Government Center",
+    "Park Street",
+    "Boylston",
+    "Arlington",
+    "Copley"
+  ],
+  'red': [
+    "Alewife",
+    "Davis",
+    "Porter",
+    "Harvard",
+    "Central",
+    "Kendall/MIT",
+    "Park Street",
+    "South Station"
+    ],
+  'orange': ["North Station",
+    "Haymarket",
+    "Park Street",
+    "State Street",
+    "Downtown Crossing",
+    "Chinatown",
+    "Tufts Medical Center"]
 };
-
-var App = App || {};
-
-App.square = function(x){
-  return x * x
-};
-
-App.cube = function(x){
-  return x * x * x
-};
-
-App.greet = function(string){
-  return string = typeof string !== 'undefined' ? 'Hello ' + string : "Hello World";
-};
-
-$(document).ready(function(){
-  trace('hello world');
-});
