@@ -1,18 +1,19 @@
-describe("the application", function() {
-  it("will square a number", function() {
-    expect(App.square(4)).toBe(16);
-  });
-
-  it('will cube a number',function(){
-    expect(App.cube(4)).toBe(64);
-  });
-
-  it('will greet you like a good boy',function(){
-    expect(App.greet('Jason')).toBe('Hello Jason');
-    expect(App.greet()).toBe('Hello World');
-    expect(App.greet('you sexy bastard')).toBe('Hello you sexy bastard');
+describe("Set up variables", function() {
+  it("expect the following variables to appear", function() {
+    expect(startingLine).not.toBeDefined();
+    expect(startingStation).not.toBeDefined();
+    expect(endingLine).not.toBeDefined();
+    expect(endingStation).not.toBeDefined();
   });
 });
+
+
+
+
+
+
+
+
 
 /*
 Suites: describe Your Tests
@@ -56,16 +57,16 @@ describe("A suite is just a function", function() {
 /*
 It’s Just Functions
 ——————————————————————————————————————————————————————————————————————
-Since describe and it blocks are functions, they can contain any 
-executable code necessary to implement the test. JavaScript scoping 
-rules apply, so variables declared in a describe are available to 
+Since describe and it blocks are functions, they can contain any
+executable code necessary to implement the test. JavaScript scoping
+rules apply, so variables declared in a describe are available to
 any it block inside the suite.
 */
 
 /*
 Expectations
 ——————————————————————————————————————————————————————————————————————
-Expectations are built with the function expect which takes a value, 
+Expectations are built with the function expect which takes a value,
 called the actual. It is chained with a Matcher function, which takes the expected value.
 */
 
@@ -288,13 +289,13 @@ describe("A spec using beforeEach and afterEach", function() {
 
 
 /*
-The beforeAll function is called only once before all the specs 
-in describe are run, and the afterAll function is called after 
-all specs finish. These functions can be used to speed up test 
+The beforeAll function is called only once before all the specs
+in describe are run, and the afterAll function is called after
+all specs finish. These functions can be used to speed up test
 suites with expensive setup and teardown.
 
-However, be careful using beforeAll and afterAll! Since they 
-are not reset between specs, it is easy to accidentally leak 
+However, be careful using beforeAll and afterAll! Since they
+are not reset between specs, it is easy to accidentally leak
 state between your specs so that they erroneously pass or fail.
 */
 
@@ -322,9 +323,9 @@ describe("A spec using beforeAll and afterAll", function() {
 /*
 The this keyword
 ——————————————————————————————————————————————————————————————————————
-Another way to share variables between a beforeEach, it, and 
-afterEach is through the this keyword. Each spec’s beforeEach/it/afterEach 
-has the this as the same empty object that is set back to empty for 
+Another way to share variables between a beforeEach, it, and
+afterEach is through the this keyword. Each spec’s beforeEach/it/afterEach
+has the this as the same empty object that is set back to empty for
 the next spec’s beforeEach/it/afterEach.
 */
 describe("A spec", function() {
@@ -347,10 +348,10 @@ describe("A spec", function() {
 /*
 Nesting describe Blocks
 ——————————————————————————————————————————————————————————————————————
-Calls to describe can be nested, with specs defined at any level. 
-This allows a suite to be composed as a tree of functions. Before 
-a spec is executed, Jasmine walks down the tree executing each 
-beforeEach function in order. After the spec is executed, 
+Calls to describe can be nested, with specs defined at any level.
+This allows a suite to be composed as a tree of functions. Before
+a spec is executed, Jasmine walks down the tree executing each
+beforeEach function in order. After the spec is executed,
 Jasmine walks through the afterEach functions similarly.
 */
 
@@ -393,8 +394,8 @@ describe("A spec", function() {
 /*
 Disabling Suites
 ——————————————————————————————————————————————————————————————————————
-Suites and specs can be disabled with the xdescribe and xit functions, 
-respectively. These suites and any specs inside them are skipped 
+Suites and specs can be disabled with the xdescribe and xit functions,
+respectively. These suites and any specs inside them are skipped
 when run and thus their results will not appear in the results.
 */
 
