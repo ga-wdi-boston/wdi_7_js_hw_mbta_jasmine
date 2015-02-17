@@ -2,6 +2,24 @@ describe("MBTA suite", function() {
   it("Actually has trains", function() {
     expect(lines).toBeDefined();
   });
+
+  it("has a starting line", function() {
+    expect(startingLine).toBeDefined();
+  });
+
+  it("has a starting station", function() {
+    expect(startingStation).toBeDefined();
+  });
+
+  it("has an ending line", function() {
+    expect(endingLine).toBeDefined();
+  });
+
+  it("has a ending station", function() {
+    expect(startingLine).toBeDefined();
+  });
+  
+
 });
 
 
