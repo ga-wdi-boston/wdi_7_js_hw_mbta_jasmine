@@ -1,6 +1,18 @@
+![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
+
 # MBTA Improvements
 
 Let's revisit the [MBTA homework](https://github.com/ga-wdi-boston/wdi_7_js_lab_mbta) with our added knowledge of objects, namespacing, and testing. I've set up the Jasmine files and directory structure for you, but I haven't created any source files or specs.
+
+## Instructions
+
+* Fork and clone
+* Run `npm install`
+* Run `bower install`
+* Run `grunt test`
+* Write your own tests
+
+There are 32 passing tests already built in. They are Jasmine's built-in matchers.
 
 ## Objectives
 
