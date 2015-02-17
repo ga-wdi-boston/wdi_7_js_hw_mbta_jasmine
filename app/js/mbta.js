@@ -3,7 +3,7 @@ startingStation,
 endingLine,
 endingStation;
 
-lines = {
+var Lines = {
   'green':['haymarket', 'park st', 'boylston', 'arlington', 'copley', 'kenmore'],
   'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
   'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
@@ -16,4 +16,11 @@ var distance = function(startingLine, startingStation, endingLine, endingStation
   else{
     return Math.abs(lines[startingLine].indexOf(startingStation) - lines[startingLine].indexOf("park st")) + Math.abs(lines[endingLine].indexOf("park st") - lines[endingLine].indexOf(endingStation));
   }
+}
+
+var Trip = function(startingLine, startingStation, endingLine, endingStation){
+  this.startingLine = startingLine;
+  this.startingStation = startingStation;
+  this.endingLine = endingLine;
+  this.endingStation = endingStation;
 }

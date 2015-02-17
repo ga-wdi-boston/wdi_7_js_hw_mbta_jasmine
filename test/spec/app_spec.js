@@ -1,4 +1,4 @@
-describe("Set up variables", function() {
+describe("Set up start/end point variables", function() {
   it("expect the following variables to appear", function() {
     expect(startingLine).not.toBeDefined();
     expect(startingStation).not.toBeDefined();
@@ -9,27 +9,42 @@ describe("Set up variables", function() {
 
 
 
+describe('Constructor Functions in javascript',function(){
+  it('first of all, it is a function',function(){
+    expect(Trip).toEqual(jasmine.any(Function));
+    expect(Trip).toBeDefined();
+  });
 
-
-
-
-
-
-/*
-Suites: describe Your Tests
-——————————————————————————————————————————————————————————————————————
-A test suite begins with a call to the global Jasmine
-function describe with two parameters: a string and a function.
-The string is a name or title for a spec suite – usually what
-is being tested. The function is a block of code that implements the suite.
-
-*/
-
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-    expect(true).toBe(true);
+  it('second, it creates a new object with the parameters passed',function(){
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(voyage).toBeDefined();
+    expect(voyage.startingLine).toEqual('red');
+    expect(voyage.startingStation).toEqual('davis');
+    expect(voyage.endingLine).toEqual('red');
+    expect(voyage.endingStation).toEqual('harvard');
   });
 });
+
+
+describe('Prototypical inheritance with constructor functions',function(){
+
+  var anna = new Person('Anna Tsykalova', 22, 'female');
+  var david = new Person('David Fisher',32,'male');
+  var mbp = new Computer('MacBookPro','13in',david,'Pinky Ring');
+
+  it('inherits from the Person.prototype',function(){
+    expect(anna.__proto__).toBeDefined();
+    expect(anna.__proto__).toEqual(jasmine.any(Object));
+    expect(anna.describe).toEqual(jasmine.any(Function));
+    expect(anna.describe()).toEqual('Anna Tsykalova identifies as female and is 22 years old.');
+    expect(david.describe()).toEqual('David Fisher identifies as male and is 32 years old.');
+  });
+  it('An object can have a property that is itself another object.',function(){
+    expect(mbp.owner).toEqual(jasmine.any(Object));
+    expect(mbp.owner.name).toMatch(/David Fisher/);
+  });
+});
+
 
 
 /*
