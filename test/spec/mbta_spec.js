@@ -61,5 +61,17 @@ describe('Trip Constructor', function() {
     it("has a 'describe' method", function() {
       expect(trip1.describe).toEqual(jasmine.any(Function));
     });
+    it("returns a description when the 'describe' property is invoked", function() {
+      spyOn(trip1, 'describe').and.callThrough();
+      trip1.describe();
+      expect(trip1.describe).toHaveBeenCalled();
+      expect(trip1.describe()).toEqual('South Station to Copley is 4 stops.')
+      expect(trip2.describe()).toEqual('Haymarket to Tufts is 6 stops.')
+      expect(trip3.describe()).toEqual('Haymarket to North Station is 4 stops.')
+      expect(trip4.describe()).toEqual('Copley to North Station is 5 stops.')
+      expect(trip5.describe()).toEqual('Copley to Tufts is 7 stops.')
+      expect(trip6.describe()).toEqual('Haymarket to Boylston is 3 stops.')
+      expect(trip7.describe()).toEqual('Boylston to Haymarket is 3 stops.')
+    });
   });
 });
