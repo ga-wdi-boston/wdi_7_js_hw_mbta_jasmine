@@ -8,3 +8,7 @@ describe('Creating an app for the mbta' function() {
 
   });
 });
+
+describe('creating a line constructor function', function() {
+  it('creates an object for lines')
+};
