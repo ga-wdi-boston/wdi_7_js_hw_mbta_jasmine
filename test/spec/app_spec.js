@@ -32,6 +32,27 @@ describe("the single-line stop checking function", function() {
   });
 });
 
+describe("the total package", function() {
+  it("will return the number of stops between two stations on the same line", function(){
+    expect(calcStops("green", "Park Street", "green", "Copley")).toBe(3);
+    expect(calcStops("orange", "Park Street", "orange", "North Station")).toBe(2);
+    expect(calcStops("red", "Central", "red", "Davis")).toBe(3);
+  });
+
+  it("will return the number of stops between two stations on the same line", function(){
+    expect(calcStops("green", "Park Street", "green", "Copley")).toBe(3);
+    expect(calcStops("orange", "Park Street", "orange", "North Station")).toBe(2);
+    expect(calcStops("red", "Central", "red", "Davis")).toBe(3);
+  });
+
+  it('will return the number of stops between two stations on different lines', function(){
+    expect(calcStops("green", "Haymarket", "orange", "Tufts")).toBe(6);
+    expect(calcStops("green", "Haymarket", "orange", "North Station")).toBe(4);
+    expect(calcStops("green", "Copley", "orange", "North Station")).toBe(5);
+    expect(calcStops("green", "Copley", "orange", "Tufts")).toBe(7);
+  });
+});
+
 
 
 
