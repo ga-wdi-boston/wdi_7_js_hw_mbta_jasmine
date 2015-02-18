@@ -27,5 +27,9 @@ describe('Trip Constructor', function() {
     it('is an Object', function() {
       expect(trip1).toEqual(jasmine.any(Object));
     });
+    it("has a 'startLine' property with a string value", function() {
+      expect(trip1.startLine).toEqual(jasmine.any(String));
+      expect(trip1.startLine).toEqual('red');
+    });
   });
 });
