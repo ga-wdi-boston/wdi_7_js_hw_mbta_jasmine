@@ -6,12 +6,10 @@ var MBTA = {
     },
 
     userInputs: function(startLine, startStation, endLine, endStation){
-      return {
-      startingLine: startLine,
-      endingLine: endLine,
-      startingStation: endLine,
-      endingStation: endStation
-    }
+      this.startingLine = startLine;
+      this.endingLine = endLine;
+      this.startingStation = endLine;
+      this.endingStation = endStation;
   },
     distance: function(){
       if(this.startingLine === this.endingLine){
