@@ -21,4 +21,11 @@ describe('Trip Constructor', function() {
     expect(trip1.endLine).toEqual('green');
     expect(trip1.endStation).toEqual('Copley');
   });
+
+  describe('an instance of a trip object', function() {
+
+    it('is an Object', function() {
+      expect(trip1).toEqual(jasmine.any(Object));
+    });
+  });
 });
