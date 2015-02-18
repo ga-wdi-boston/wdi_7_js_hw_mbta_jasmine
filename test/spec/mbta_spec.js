@@ -43,5 +43,8 @@ describe('Trip Constructor', function() {
       expect(trip1.endStation).toEqual(jasmine.any(String));
       expect(trip1.endStation).toEqual('Copley');
     });
+    it("has a 'calcStops' method", function() {
+      expect(trip1.calcStops).toEqual(jasmine.any(Function));
+    });
   });
 });
