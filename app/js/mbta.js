@@ -31,3 +31,8 @@ Trip.prototype = {
     return Math.abs(this.stops.indexOf(starting) - this.stops.indexOf(ending));
   }
 }
+
+
+var green = new Line('green', ['haymarket', 'government center', 'park st', 'bolyston', 'arlington', 'copley']);
+var red = new Line('red', ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife']);
+var orange = new Line('orange', ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']);
