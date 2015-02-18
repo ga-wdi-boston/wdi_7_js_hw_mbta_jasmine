@@ -19,5 +19,8 @@ Trip.prototype = {
         } else {
             return Math.abs(lines[this.startLine].indexOf(this.startStation) - lines[this.startLine].indexOf(hub)) + Math.abs(lines[this.endLine].indexOf(this.endStation) - lines[this.endLine].indexOf(hub));
         }
+    },
+    describe: function() {
+        return this.startStation + " to " + this.endStation + " is " + this.calcStops() + " stops."
     }
 };
