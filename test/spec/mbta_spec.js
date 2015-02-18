@@ -73,5 +73,10 @@ describe('Trip Constructor', function() {
       expect(trip6.describe()).toEqual('Haymarket to Boylston is 3 stops.')
       expect(trip7.describe()).toEqual('Boylston to Haymarket is 3 stops.')
     });
+    it('inherits from the Trip.prototype', function() {
+      expect(trip1.__proto__).toBeDefined();
+      expect(trip1.__proto__).toEqual(jasmine.any(Object));
+      expect(trip1.__proto__).toEqual(Trip.prototype);
+    });
   });
 });
