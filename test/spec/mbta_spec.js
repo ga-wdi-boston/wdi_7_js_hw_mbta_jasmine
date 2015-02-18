@@ -14,4 +14,11 @@ describe('Trip Constructor', function() {
     expect(Trip).toEqual(jasmine.any(Function));
     expect(Trip).toBeDefined();
   });
+  it('creates a new object with the parameters passed', function() {
+    expect(trip1).toBeDefined();
+    expect(trip1.startLine).toEqual('red');
+    expect(trip1.startStation).toEqual('South Station');
+    expect(trip1.endLine).toEqual('green');
+    expect(trip1.endStation).toEqual('Copley');
+  });
 });
