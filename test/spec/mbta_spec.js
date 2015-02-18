@@ -31,5 +31,9 @@ describe('Trip Constructor', function() {
       expect(trip1.startLine).toEqual(jasmine.any(String));
       expect(trip1.startLine).toEqual('red');
     });
+    it("has a 'startStation' property with a string value", function() {
+      expect(trip1.startStation).toEqual(jasmine.any(String));
+      expect(trip1.startStation).toEqual('South Station');
+    });
   });
 });
