@@ -58,5 +58,8 @@ describe('Trip Constructor', function() {
       expect(trip6.calcStops()).toEqual(3);
       expect(trip7.calcStops()).toEqual(3);
     });
+    it("has a 'describe' method", function() {
+      expect(trip1.describe).toEqual(jasmine.any(Function));
+    });
   });
 });
