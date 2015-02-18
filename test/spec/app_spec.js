@@ -7,8 +7,6 @@ describe("Set up start/end point variables", function() {
   });
 });
 
-
-
 describe('Constructor Functions in javascript',function(){
   it('first of all, it is a function',function(){
     expect(Trip).toEqual(jasmine.any(Function));
@@ -41,15 +39,53 @@ describe('Prototypical inheritance with constructor functions',function(){
     expect(longTrip.describe()).toEqual('Traveling from alewife on the red line to kenmore on the green line');
     expect(orangeTrip.describe()).toEqual('Traveling from state on the orange line to back bay on the orange line');
   });
+});
 
+describe('Constructor Functions in javascript',function(){
+  it('first of all, it is a function',function(){
+    expect(Line).toEqual(jasmine.any(Function));
+    expect(Line).toBeDefined();
+  });
 
-  it('An object can have a property that is itself another object.',function(){
-    expect(mbp.owner).toEqual(jasmine.any(Object));
-    expect(mbp.owner.name).toMatch(/David Fisher/);
+  it('second, it creates a new object with the parameters passed',function(){
+    var liner = new Line('red', ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife']);
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(liner).toBeDefined();
+    expect(voyage.startingLine).toEqual('red');
+    expect(voyage.startingStation).toEqual('davis');
+    expect(voyage.endingLine).toEqual('red');
+    expect(voyage.endingStation).toEqual('harvard');
   });
 });
 
+describe("Set up lines", function() {
+  it("expect the following variables to appear", function() {
+    expect(lines).toBeDefined();
+    expect(lines).toEqual(jasmine.any(Object));
+  });
 
+  it("The 'toContain' matcher is for finding an item in an Array", function() {
+      var lines = {
+  'green':['haymarket', 'park st', 'boylston', 'arlington', 'copley', 'kenmore'],
+  'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
+  'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
+    };
+
+      expect(lines.red).toContain("davis");
+      expect(lines.green).toContain("copley");
+      expect(lines.green).toContain("park st");
+      expect(lines.green).toContain("park st");
+      expect(lines.green).toContain("park st");
+    });
+});
+
+describe("Find Trip indexes of starting/ending stations", function() {
+  it("expect index of starting station", function(){
+    var liner = new Line('red', ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife']);
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(voyage.indexOf(startingStation).toBe(6);
+  });
+});
 
 /*
 Specs
