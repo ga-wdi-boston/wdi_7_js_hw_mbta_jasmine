@@ -23,6 +23,11 @@ describe("MBTA suite", function() {
     expect(numberStops).toEqual(jasmine.any(Function))
   });
 
+  it("numberStops function should return the correct number of stops", function() {
+    expect(numberStops('red', 'Alewife', 'red', 'Harvard')).toEqual(3)
+    expect(numberStops('red', 'Central', 'green', 'Copley')).toEqual(5)
+  });
+
 });
 
 

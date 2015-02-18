@@ -26,15 +26,22 @@ var lines = {
     "Tufts Medical Center"]
 };
 
-var startingLine = prompt("Enter your starting line");
-var startingStation = prompt("Enter the Starting Station");
-var endingLine = prompt("Enter the Ending Line");
-var endingStation =  prompt("Enter the Ending Station");
+// var startingLine = prompt("Enter your starting line");
+// var startingStation = prompt("Enter the Starting Station");
+// var endingLine = prompt("Enter the Ending Line");
+// var endingStation =  prompt("Enter the Ending Station");
 
-var numberStops = function(startingLine, startingStation, endingLine, endingStation){
-  if (startingLine === endingLine) {
-    return Math.abs(startingLine.indexOf(startingStation) - endingLine.indexOf(endingStation));
-  } else {
-    return Math.abs(startingLine.indexOf(startingStation) - startingLine.indexOf('Park Street')) + Math.abs(endingLine.indexOf("Park Street") - endingLine.indexOf(endingStation));
-  }
+var getStationIndex = function(line, station) {
+  var station_index = lines[line].indexOf(station);
+  return station_index;
 };
+
+
+// var numberStops = function(startingLine, startingStation, endingLine, endingStation){
+//   if (startingLine === endingLine) {
+//     // console.log("here");
+//     return Math.abs(startingLine.indexOf(startingStation) - endingLine.indexOf(endingStation));
+//   } else {
+//     return Math.abs(startingLine.indexOf(startingStation) - startingLine.indexOf('Park Street')) + Math.abs(endingLine.indexOf("Park Street") - endingLine.indexOf(endingStation));
+//   }
+// };
