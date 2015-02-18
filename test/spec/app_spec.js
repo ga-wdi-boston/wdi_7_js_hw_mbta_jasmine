@@ -28,17 +28,21 @@ describe('Constructor Functions in javascript',function(){
 
 describe('Prototypical inheritance with constructor functions',function(){
 
-  var anna = new Person('Anna Tsykalova', 22, 'female');
-  var david = new Person('David Fisher',32,'male');
-  var mbp = new Computer('MacBookPro','13in',david,'Pinky Ring');
+  var shortTrip = new Trip('red', 'davis', 'red', 'harvard');
+  var longTrip = new Trip('red', 'alewife', 'green', 'kenmore');
+  var orangeTrip = new Trip('orange', 'state', 'orange', 'back bay');
 
   it('inherits from the Person.prototype',function(){
-    expect(anna.__proto__).toBeDefined();
-    expect(anna.__proto__).toEqual(jasmine.any(Object));
-    expect(anna.describe).toEqual(jasmine.any(Function));
-    expect(anna.describe()).toEqual('Anna Tsykalova identifies as female and is 22 years old.');
-    expect(david.describe()).toEqual('David Fisher identifies as male and is 32 years old.');
+    expect(shortTrip.__proto__).toBeDefined();
+    expect(shortTrip.__proto__).toEqual(jasmine.any(Object));
+    expect(shortTrip.describe).toEqual(jasmine.any(Function));
+
+    expect(shortTrip.describe()).toEqual('Traveling from davis on the red line to harvard on the red line');
+    expect(longTrip.describe()).toEqual('Traveling from alewife on the red line to kenmore on the green line');
+    expect(orangeTrip.describe()).toEqual('Traveling from state on the orange line to back bay on the orange line');
   });
+
+
   it('An object can have a property that is itself another object.',function(){
     expect(mbp.owner).toEqual(jasmine.any(Object));
     expect(mbp.owner.name).toMatch(/David Fisher/);

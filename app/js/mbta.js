@@ -24,3 +24,9 @@ var Trip = function(startingLine, startingStation, endingLine, endingStation){
   this.endingLine = endingLine;
   this.endingStation = endingStation;
 }
+
+Trip.prototype = {
+  describe: function(){
+    return "Traveling from " + this.startingStation + " on the " + this.startingLine + " line to " + this.endingStation + " on the " + this.endingLine + " line";
+  }
+}
