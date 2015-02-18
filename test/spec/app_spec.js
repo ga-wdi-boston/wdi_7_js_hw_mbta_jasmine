@@ -19,6 +19,19 @@ describe("the lines literal object", function() {
 
 });
 
+describe("the single-line stop checking function", function() {
+
+  it('will take 3 arguments', function() {
+    expect(findStops).toThrow();
+  });
+
+  it("will return the number of stops between two stations on the same line", function(){
+    expect(findStops("green", "Park Street", "Copley")).toBe(3);
+    expect(findStops("orange", "Park Street", "North Station")).toBe(2);
+    expect(findStops("red", "Central", "Davis")).toBe(3);
+  });
+});
+
 
 
 
