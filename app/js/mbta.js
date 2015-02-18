@@ -12,6 +12,6 @@ var Trip = function(startingLine, startingStation, endingLine, endingStation) {
 
 Trip.prototype = {
   distance: function() {
-    return this.startingLine.stops.indexOf(this.startingStation)
+    return Math.abs(this.startingLine.stops.indexOf(this.startingStation) -this.endingLine.stops.indexOf(this.endingStation))
   }
 }
