@@ -57,6 +57,10 @@ describe("A suite is just a function", function() {
   });
 });
 
+
+//onto koans
+
+
 /*
 It’s Just Functions
 ——————————————————————————————————————————————————————————————————————
