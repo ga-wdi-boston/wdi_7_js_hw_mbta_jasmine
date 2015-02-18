@@ -5,9 +5,9 @@ describe("The MBTA", function(){
   });
   it("will have lines", function(){
     expect(MBTA.lines).toBeDefined();
-    expect(MBTA.lines["Red"]).toBe(["Alewife","Davis","Porter","Harvard","Central","Kendall/MIT","Charles/MGH","Park Street","Downtown Crossing","South Station"]);
-    expect(MBTA.lines["Green"]).toBe(["North Station","Haymarket","Government Center","Park Street","Boylston","Arlington","Copley","Hynes Convention Center", "Kenmore"]);
-    expect(MBTA.lines["Orange"]).toBe(["Oak Grove", "Malden Center", "Wellington", "Assembly","Sullivan Square", "Community College", "North Station","Haymarket","Park Street","State","Downtown Crossing"]);
+    expect(MBTA.lines["Red"]).toContain("Alewife","Davis","Porter","Harvard","Central","Kendall/MIT","Charles/MGH","Park Street","Downtown Crossing","South Station");
+    expect(MBTA.lines["Green"]).toContain("North Station","Haymarket","Government Center","Park Street","Boylston","Arlington","Copley","Hynes Convention Center", "Kenmore");
+    expect(MBTA.lines["Orange"]).toContain("Oak Grove", "Malden Center", "Wellington", "Assembly","Sullivan Square", "Community College", "North Station","Haymarket","Park Street","State","Downtown Crossing");
   });
 });
 describe("#userInputs", function(){
