@@ -1,35 +1,91 @@
-describe("the application", function() {
-  it("will square a number", function() {
-    expect(App.square(4)).toBe(16);
-  });
-
-  it('will cube a number',function(){
-    expect(App.cube(4)).toBe(64);
-  });
-
-  it('will greet you like a good boy',function(){
-    expect(App.greet('Jason')).toBe('Hello Jason');
-    expect(App.greet()).toBe('Hello World');
-    expect(App.greet('you sexy bastard')).toBe('Hello you sexy bastard');
+describe("Set up start/end point variables", function() {
+  it("expect the following variables to appear", function() {
+    expect(startingLine).not.toBeDefined();
+    expect(startingStation).not.toBeDefined();
+    expect(endingLine).not.toBeDefined();
+    expect(endingStation).not.toBeDefined();
   });
 });
 
-/*
-Suites: describe Your Tests
-——————————————————————————————————————————————————————————————————————
-A test suite begins with a call to the global Jasmine
-function describe with two parameters: a string and a function.
-The string is a name or title for a spec suite – usually what
-is being tested. The function is a block of code that implements the suite.
+describe('Constructor Functions in javascript',function(){
+  it('first of all, it is a function',function(){
+    expect(Trip).toEqual(jasmine.any(Function));
+    expect(Trip).toBeDefined();
+  });
 
-*/
-
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
-    expect(true).toBe(true);
+  it('second, it creates a new object with the parameters passed',function(){
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(voyage).toBeDefined();
+    expect(voyage.startingLine).toEqual('red');
+    expect(voyage.startingStation).toEqual('davis');
+    expect(voyage.endingLine).toEqual('red');
+    expect(voyage.endingStation).toEqual('harvard');
   });
 });
 
+
+describe('Prototypical inheritance with constructor functions',function(){
+
+  var shortTrip = new Trip('red', 'davis', 'red', 'harvard');
+  var longTrip = new Trip('red', 'alewife', 'green', 'kenmore');
+  var orangeTrip = new Trip('orange', 'state', 'orange', 'back bay');
+
+  it('inherits from the Person.prototype',function(){
+    expect(shortTrip.__proto__).toBeDefined();
+    expect(shortTrip.__proto__).toEqual(jasmine.any(Object));
+    expect(shortTrip.describe).toEqual(jasmine.any(Function));
+
+    expect(shortTrip.describe()).toEqual('Traveling from davis on the red line to harvard on the red line');
+    expect(longTrip.describe()).toEqual('Traveling from alewife on the red line to kenmore on the green line');
+    expect(orangeTrip.describe()).toEqual('Traveling from state on the orange line to back bay on the orange line');
+  });
+});
+
+describe('Constructor Functions in javascript',function(){
+  it('first of all, it is a function',function(){
+    expect(Line).toEqual(jasmine.any(Function));
+    expect(Line).toBeDefined();
+  });
+
+  it('second, it creates a new object with the parameters passed',function(){
+    var liner = new Line('red', ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife']);
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(liner).toBeDefined();
+    expect(voyage.startingLine).toEqual('red');
+    expect(voyage.startingStation).toEqual('davis');
+    expect(voyage.endingLine).toEqual('red');
+    expect(voyage.endingStation).toEqual('harvard');
+  });
+});
+
+describe("Set up lines", function() {
+  it("expect the following variables to appear", function() {
+    expect(lines).toBeDefined();
+    expect(lines).toEqual(jasmine.any(Object));
+  });
+
+  it("The 'toContain' matcher is for finding an item in an Array", function() {
+      var lines = {
+  'green':['haymarket', 'park st', 'boylston', 'arlington', 'copley', 'kenmore'],
+  'red': ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife'],
+  'orange': ['north station', 'haymarket', 'park st', 'state', 'downtown crossing', 'chinatown', 'back bay', 'forest hills']
+    };
+
+      expect(lines.red).toContain("davis");
+      expect(lines.green).toContain("copley");
+      expect(lines.green).toContain("park st");
+      expect(lines.green).toContain("park st");
+      expect(lines.green).toContain("park st");
+    });
+});
+
+describe("Find Trip indexes of starting/ending stations", function() {
+  it("expect index of starting station", function(){
+    var liner = new Line('red', ['south station', 'park st', 'kendall', 'central', 'harvard', 'porter', 'davis', 'alewife']);
+    var voyage = new Trip('red', 'davis', 'red', 'harvard');
+    expect(voyage.indexOf(startingStation).toBe(6);
+  });
+});
 
 /*
 Specs
@@ -56,16 +112,16 @@ describe("A suite is just a function", function() {
 /*
 It’s Just Functions
 ——————————————————————————————————————————————————————————————————————
-Since describe and it blocks are functions, they can contain any 
-executable code necessary to implement the test. JavaScript scoping 
-rules apply, so variables declared in a describe are available to 
+Since describe and it blocks are functions, they can contain any
+executable code necessary to implement the test. JavaScript scoping
+rules apply, so variables declared in a describe are available to
 any it block inside the suite.
 */
 
 /*
 Expectations
 ——————————————————————————————————————————————————————————————————————
-Expectations are built with the function expect which takes a value, 
+Expectations are built with the function expect which takes a value,
 called the actual. It is chained with a Matcher function, which takes the expected value.
 */
 
@@ -288,13 +344,13 @@ describe("A spec using beforeEach and afterEach", function() {
 
 
 /*
-The beforeAll function is called only once before all the specs 
-in describe are run, and the afterAll function is called after 
-all specs finish. These functions can be used to speed up test 
+The beforeAll function is called only once before all the specs
+in describe are run, and the afterAll function is called after
+all specs finish. These functions can be used to speed up test
 suites with expensive setup and teardown.
 
-However, be careful using beforeAll and afterAll! Since they 
-are not reset between specs, it is easy to accidentally leak 
+However, be careful using beforeAll and afterAll! Since they
+are not reset between specs, it is easy to accidentally leak
 state between your specs so that they erroneously pass or fail.
 */
 
@@ -322,9 +378,9 @@ describe("A spec using beforeAll and afterAll", function() {
 /*
 The this keyword
 ——————————————————————————————————————————————————————————————————————
-Another way to share variables between a beforeEach, it, and 
-afterEach is through the this keyword. Each spec’s beforeEach/it/afterEach 
-has the this as the same empty object that is set back to empty for 
+Another way to share variables between a beforeEach, it, and
+afterEach is through the this keyword. Each spec’s beforeEach/it/afterEach
+has the this as the same empty object that is set back to empty for
 the next spec’s beforeEach/it/afterEach.
 */
 describe("A spec", function() {
@@ -347,10 +403,10 @@ describe("A spec", function() {
 /*
 Nesting describe Blocks
 ——————————————————————————————————————————————————————————————————————
-Calls to describe can be nested, with specs defined at any level. 
-This allows a suite to be composed as a tree of functions. Before 
-a spec is executed, Jasmine walks down the tree executing each 
-beforeEach function in order. After the spec is executed, 
+Calls to describe can be nested, with specs defined at any level.
+This allows a suite to be composed as a tree of functions. Before
+a spec is executed, Jasmine walks down the tree executing each
+beforeEach function in order. After the spec is executed,
 Jasmine walks through the afterEach functions similarly.
 */
 
@@ -393,8 +449,8 @@ describe("A spec", function() {
 /*
 Disabling Suites
 ——————————————————————————————————————————————————————————————————————
-Suites and specs can be disabled with the xdescribe and xit functions, 
-respectively. These suites and any specs inside them are skipped 
+Suites and specs can be disabled with the xdescribe and xit functions,
+respectively. These suites and any specs inside them are skipped
 when run and thus their results will not appear in the results.
 */
 
