@@ -1,25 +1,27 @@
 'use strict';
 
-var trace = function(){
-  for(var i = 0; i < arguments.length; i++){
-    console.log(arguments[i]);
-  }
+var startingLine,
+startingStation,
+endingLine,
+endingStation;
+
+startingLine = "red";
+startingStation = "south station";
+endingLine = "red";
+endingStation =  "central";
+
+var lines = {
+  green:["haymerket", "government center", "park st", "bolyston", "arlington", "copley"],
+  red: ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+  orange: ["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
 };
 
-var App = App || {};
-
-App.square = function(x){
-  return x * x
+var calc = function() {
+  return Math.abs(lines.red.indexOf(startingStation) - lines.red.indexOf(endingStation));
 };
 
-App.cube = function(x){
-  return x * x * x
+var dualLine = function(line1, line2, station1, station2) {
+  return Math.abs(lines[line1].indexOf(station1) - lines[line1].indexOf('park st') + (lines[line2].indexOf(station2) - lines[line2].indexOf('park st')));
 };
 
-App.greet = function(string){
-  return string = typeof string !== 'undefined' ? 'Hello ' + string : "Hello World";
-};
-
-$(document).ready(function(){
-  trace('hello world');
-});
+console.log(calc("red", "red", "south station", "central"));
