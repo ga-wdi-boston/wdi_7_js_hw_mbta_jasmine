@@ -46,5 +46,17 @@ describe('Trip Constructor', function() {
     it("has a 'calcStops' method", function() {
       expect(trip1.calcStops).toEqual(jasmine.any(Function));
     });
+    it("returns the number of stops between 'startStation' and 'endStation' when the 'calcStops' method is invoked", function() {
+      spyOn(trip1, 'calcStops').and.callThrough();
+      trip1.calcStops();
+      expect(trip1.calcStops).toHaveBeenCalled();
+      expect(trip1.calcStops()).toEqual(4);
+      expect(trip2.calcStops()).toEqual(6);
+      expect(trip3.calcStops()).toEqual(4);
+      expect(trip4.calcStops()).toEqual(5);
+      expect(trip5.calcStops()).toEqual(7);
+      expect(trip6.calcStops()).toEqual(3);
+      expect(trip7.calcStops()).toEqual(3);
+    });
   });
 });
