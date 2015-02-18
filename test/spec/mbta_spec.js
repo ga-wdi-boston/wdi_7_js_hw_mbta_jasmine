@@ -16,13 +16,16 @@ describe("the MBTA application", function() {
     expect(Trip).toEqual(jasmine.any(Function));
 
     var blue = new Line('Blue', ["O'Hare", "Rosemont", "Cumberland"]);
-    var brown = new Line('Brown', ['Kimball', 'Kedzie', 'Francisco']);
+    var brown = new Line('Brown', ['Kimball', 'Kedzie', 'Francisco', 'park st']);
+    var morningCommute = new Trip(brown, "Francisco", brown, 'Kimball');
     var returnFromVacation = new Trip(blue, "O'Hare", brown, 'Kimball');
 
     expect(returnFromVacation.startingLine.name).toBe("Blue");
     expect(returnFromVacation.endingLine.name).toBe("Brown");
     expect(returnFromVacation.startingStation).toBe("O'Hare");
     expect(returnFromVacation.endingStation).toBe("Kimball");
+    expect(brown.distanceSameLine("Francisco", "Kedzie")).toBe(1);
+    expect(brown.distanceToPark('Kimball')).toBe(3);
   });
   it("will be able to find the distance between two stops on the same line.", function() {
     var brown = new Line('Brown', ['Kimball', 'Kedzie', 'Francisco']);
