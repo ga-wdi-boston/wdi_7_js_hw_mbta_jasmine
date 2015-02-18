@@ -10,3 +10,14 @@ var Trip = function(startLine, startStation, endLine, endStation){
   this.endLine = endLine;
   this.endStation = endStation;
 };
+
+Trip.prototype = {
+    calcStops: function() {
+        var hub = "Park Street";
+        if (this.startLine === this.endLine) {
+            return Math.abs(lines[this.startLine].indexOf(this.startStation) - lines[this.startLine].indexOf(this.endStation));
+        } else {
+            return Math.abs(lines[this.startLine].indexOf(this.startStation) - lines[this.startLine].indexOf(hub)) + Math.abs(lines[this.endLine].indexOf(this.endStation) - lines[this.endLine].indexOf(hub));
+        }
+    }
+};
