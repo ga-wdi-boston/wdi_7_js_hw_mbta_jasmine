@@ -28,16 +28,16 @@ describe("the MBTA application", function() {
     var brown = new Line('Brown', ['Kimball', 'Kedzie', 'Francisco']);
     var morningCommute = new Trip(brown, "Francisco", brown, 'Kimball');
     var eveningCommute = new Trip(brown, "Kimball", brown, 'Francisco');
-    expect(morningCommute.distance).toBe(2);
-    expect(eveningCommute.distance).toBe(2);
+    expect(morningCommute.distance()).toBe(2);
+    expect(eveningCommute.distance()).toBe(2);
   });
   it("will be able to find the distance between two stops on different lines.", function() {
     var brown = new Line('Brown', ['Kimball', 'park st', 'Kedzie', 'Francisco']);
     var blue = new Line('Blue', ["O'Hare", "Rosemont", "Cumberland", 'park st']);
     var morningCommute = new Trip(brown, "Francisco", blue, 'Rosemont');
     var eveningCommute = new Trip(blue, "Rosemont", brown, 'Francisco');
-    expect(morningCommute.distance).toBe(4);
-    expect(eveningCommute.distance).toBe(4);
+    expect(morningCommute.distance()).toBe(4);
+    expect(eveningCommute.distance()).toBe(4);
   });
 
 
