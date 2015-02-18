@@ -18,16 +18,21 @@ describe("#userInputs", function(){
     expect(MBTA.userInputs).toEqual(jasmine.any(Function));
   });
   it("determines if the method is called", function(){
-    expect(userInputs.calls.any()).toEqual(false);
+    expect(MBTA.userInputs.calls.any()).toEqual(false);
 
     MBTA.userInputs();
 
     expect(MBTA.userInputs.calls.any()).toEqual(true);
   });
 
-  it("determines if the method assigns input arguments to variables", function(){
+  it("determines if the method takes arguments", function(){
     MBTA.userInputs("Red", "South Station", "Green", "Haymarket");
 
     expect(MBTA.userInputs.calls.allArgs()).toEqual(["Red", "South Station", "Green", "Haymarket"]);
   });
+
+  it("determines if the arguments are assigned to variables", function(){
+    ;
+    expect(MBTA.userInputs("Red", "South Station", "Green", "Haymarket")).toBe(Object {startingLine: "Red", endingLine: "Davis", startingStation: "Davis", endingStation: "South Staton"});
+  }
 });
